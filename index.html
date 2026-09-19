@@ -509,7 +509,7 @@
     <div class="brand-divider"></div>
     <div class="brand-text">
       <h1>Python Practice — Lists, Logic &amp; Data</h1>
-      <p>45 exercises: the original five, plus all 40 Dễ and Trung bình tasks from the <em>50 bài tập Python &amp; Turtle</em> handout. Write your code in each editor, run it to check the output, then submit to see the worked explanation. Turtle exercises draw straight onto the page.</p>
+      <p>45 exercises: the original five, plus all 40 Easy and Medium tasks from the <em>50 Python &amp; Turtle Exercises</em> handout. Write your code in each editor, run it to check the output, then submit to see the worked explanation. Turtle exercises draw straight onto the page.</p>
     </div>
   </div>
   <div class="header-right">
@@ -722,484 +722,484 @@ print("top student:", students[0]["name"])</pre>
 
 const EXTRA_TASKS = [
 {
-"title": "Vẽ đường zíc zắc",
-"goal": "Turtle · vòng lặp for",
-"level": "Dễ",
+"title": "Draw a zigzag line",
+"goal": "Turtle · for loop",
+"level": "Easy",
 "kind": "turtle",
 "disp": "1",
-"prompt": "<p class=\"prompt\">Dùng Turtle vẽ một đường zíc zắc: nhiều đoạn thẳng ngắn nối tiếp nhau, lần lượt rẽ trái rồi rẽ phải theo một góc cố định.</p><p class=\"prompt expect\"><span class=\"expect-tag\">Kết quả mong đợi</span>Một đường zíc zắc gồm nhiều đoạn thẳng nối tiếp nhau.</p>",
-"hint": "<strong>Gợi ý</strong><ul class=\"hint-list\"><li>Dùng vòng lặp <code>for</code>, mỗi lần <code>forward(do_dai)</code> rồi đổi hướng rẽ trái/phải xen kẽ.</li><li>Có thể dùng biến <code>dau</code> (giá trị 1 hoặc -1) nhân với góc rẽ để đổi chiều mỗi lần lặp.</li><li>Thử thay đổi góc rẽ để đường zíc zắc nhọn hơn hoặc mềm hơn.</li></ul>",
-"starter": "import turtle\n\nt = turtle.Turtle()\n\n# Viết code của bạn ở đây\n",
+"prompt": "<p class=\"prompt\">Use Turtle to draw a zigzag line: several short straight segments joined end to end, turning left and then right by a fixed angle in turn.</p><p class=\"prompt expect\"><span class=\"expect-tag\">Expected output</span>A zigzag line made of several connected straight segments.</p>",
+"hint": "<strong>Hint</strong><ul class=\"hint-list\"><li>Use a <code>for</code> loop: each time, <code>forward(length)</code> and then turn left or right, alternating.</li><li>You can use a variable <code>sign</code> (value 1 or -1) multiplied by the turn angle to flip direction on every pass.</li><li>Try changing the turn angle to make the zigzag sharper or gentler.</li></ul>",
+"starter": "import turtle\n\nt = turtle.Turtle()\n\n# Write your code below\n",
 "stdin": "",
-"explanation": "<p>Mẹo ở đây là dùng một biến <code>dau</code> đổi dấu sau mỗi lần lặp. Nhân nó với góc rẽ thì con rùa tự động rẽ trái rồi rẽ phải xen kẽ, không cần viết hai lệnh riêng. Lưu ý góc rẽ phải bằng <em>gấp đôi</em> độ nghiêng của mỗi đoạn, vì con rùa phải lật từ nghiêng lên sang nghiêng xuống.</p><pre>import turtle\n\nt = turtle.Turtle()\nt.pensize(3)\nt.pencolor(\"blue\")\n\ndo_dai = 60\nnghieng = 60\ndau = 1\n\nt.penup()\nt.goto(-250, 0)\nt.pendown()\nt.setheading(nghieng)\n\nfor i in range(10):\n    t.forward(do_dai)\n    t.right(2 * nghieng * dau)\n    dau = -dau\n\nturtle.done()</pre><p>Nếu đổi <code>nghieng</code> thành 30 thì đường zíc zắc sẽ thoải hơn; tăng lên 80 thì các đỉnh nhọn hẳn lên. Nếu bạn chỉ rẽ <code>nghieng</code> độ thay vì gấp đôi, hình sẽ thành bậc thang chứ không phải zíc zắc — một lỗi rất dễ mắc.</p>"
+"explanation": "<p>The trick is to use a variable <code>sign</code> that flips after each pass through the loop. Multiply it by the turn angle and the turtle automatically turns left, then right, alternately, with no need for two separate commands. Note that the turn angle must be <em>twice</em> the tilt of each segment, because the turtle has to flip from tilting upward to tilting downward.</p><pre>import turtle\n\nt = turtle.Turtle()\nt.pensize(3)\nt.pencolor(\"blue\")\n\nlength = 60\ntilt = 60\nsign = 1\n\nt.penup()\nt.goto(-250, 0)\nt.pendown()\nt.setheading(tilt)\n\nfor i in range(10):\n    t.forward(length)\n    t.right(2 * tilt * sign)\n    sign = -sign\n\nturtle.done()</pre><p>If you change <code>tilt</code> to 30 the zigzag becomes gentler; raise it to 80 and the peaks get sharper. If you turn by only <code>tilt</code> degrees instead of double, the shape becomes a staircase rather than a zigzag — a very easy mistake to make.</p>"
 },
 {
-"title": "Tính chỉ số BMI và phân loại",
+"title": "Calculate BMI and classify it",
 "goal": "input · if-elif-else",
-"level": "Dễ",
+"level": "Easy",
 "kind": "python",
 "disp": "2",
-"prompt": "<p class=\"prompt\">Nhập vào cân nặng (kg) và chiều cao (m), tính chỉ số BMI, sau đó phân loại là gầy, bình thường, thừa cân hay béo phì.</p><p class=\"prompt expect\"><span class=\"expect-tag\">Kết quả mong đợi</span>In ra chỉ số BMI và phân loại tương ứng.</p>",
-"hint": "<strong>Gợi ý</strong><ul class=\"hint-list\"><li>Công thức: <code>BMI = cân nặng / (chiều cao * chiều cao)</code>.</li><li>Dùng <code>if-elif-else</code> với các mốc 18.5, 25 và 30.</li><li>Làm tròn chỉ số BMI bằng <code>round()</code> trước khi in cho dễ đọc.</li></ul>",
-"starter": "# Viết code của bạn ở đây\n\ncan_nang = float(input(\"Cân nặng (kg): \"))\nchieu_cao = float(input(\"Chiều cao (m): \"))\n",
+"prompt": "<p class=\"prompt\">Enter a weight (kg) and a height (m), calculate the BMI, then classify it as underweight, normal, overweight or obese.</p><p class=\"prompt expect\"><span class=\"expect-tag\">Expected output</span>Print the BMI value and the matching category.</p>",
+"hint": "<strong>Hint</strong><ul class=\"hint-list\"><li>Formula: <code>BMI = weight / (height * height)</code>.</li><li>Use <code>if-elif-else</code> with the thresholds 18.5, 25 and 30.</li><li>Round the BMI with <code>round()</code> before printing so it is easier to read.</li></ul>",
+"starter": "# Write your code below\n\nweight = float(input(\"Weight (kg): \"))\nheight = float(input(\"Height (m): \"))\n",
 "stdin": "68\n1.72",
-"explanation": "<p>Điểm cần chú ý là thứ tự các nhánh <code>elif</code>. Vì Python kiểm tra từ trên xuống và dừng ở nhánh đúng đầu tiên, ta chỉ cần so sánh cận trên của mỗi khoảng là đủ.</p><pre>can_nang = float(input(\"Cân nặng (kg): \"))\nchieu_cao = float(input(\"Chiều cao (m): \"))\n\nbmi = can_nang / (chieu_cao * chieu_cao)\n\nif bmi &lt; 18.5:\n    phan_loai = \"Gầy\"\nelif bmi &lt; 25:\n    phan_loai = \"Bình thường\"\nelif bmi &lt; 30:\n    phan_loai = \"Thừa cân\"\nelse:\n    phan_loai = \"Béo phì\"\n\nprint(\"BMI:\", round(bmi, 1))\nprint(\"Phân loại:\", phan_loai)</pre><p>Nhớ <code>float()</code> chứ không phải <code>int()</code>: chiều cao 1.72 sẽ bị cắt thành 1 nếu dùng <code>int()</code>, và kết quả BMI sẽ sai hoàn toàn.</p>"
+"explanation": "<p>The thing to watch is the order of the <code>elif</code> branches. Because Python checks from the top down and stops at the first true branch, it is enough to compare against the upper bound of each range.</p><pre>weight = float(input(\"Weight (kg): \"))\nheight = float(input(\"Height (m): \"))\n\nbmi = weight / (height * height)\n\nif bmi &lt; 18.5:\n    category = \"Underweight\"\nelif bmi &lt; 25:\n    category = \"Normal\"\nelif bmi &lt; 30:\n    category = \"Overweight\"\nelse:\n    category = \"Obese\"\n\nprint(\"BMI:\", round(bmi, 1))\nprint(\"Category:\", category)</pre><p>Remember <code>float()</code>, not <code>int()</code>: a height of 1.72 would be cut down to 1 with <code>int()</code>, and the BMI would be completely wrong.</p>"
 },
 {
-"title": "Vẽ các hình vuông lồng nhau",
-"goal": "Turtle · vòng lặp lồng nhau",
-"level": "Dễ",
+"title": "Draw nested squares",
+"goal": "Turtle · nested loops",
+"level": "Easy",
 "kind": "turtle",
 "disp": "3",
-"prompt": "<p class=\"prompt\">Dùng Turtle vẽ nhiều hình vuông lồng nhau, cùng tâm, kích thước nhỏ dần vào bên trong.</p><p class=\"prompt expect\"><span class=\"expect-tag\">Kết quả mong đợi</span>Nhiều hình vuông cùng tâm, nhỏ dần vào trong.</p>",
-"hint": "<strong>Gợi ý</strong><ul class=\"hint-list\"><li>Vẽ hình vuông đầu tiên với cạnh lớn, sau đó giảm dần độ dài cạnh.</li><li>Dùng vòng lặp <code>for</code> kết hợp việc di chuyển tâm hình vuông cho đều trước mỗi lần vẽ.</li><li>Đổi màu bút cho mỗi hình vuông để dễ phân biệt các lớp.</li></ul>",
-"starter": "import turtle\n\nt = turtle.Turtle()\n\n# Viết code của bạn ở đây\n",
+"prompt": "<p class=\"prompt\">Use Turtle to draw several nested squares that share the same center, getting smaller toward the inside.</p><p class=\"prompt expect\"><span class=\"expect-tag\">Expected output</span>Several squares with the same center, shrinking inward.</p>",
+"hint": "<strong>Hint</strong><ul class=\"hint-list\"><li>Draw the first square with a large side, then reduce the side length step by step.</li><li>Use a <code>for</code> loop and move the starting point evenly before drawing each square so they stay centered.</li><li>Change the pen color for each square to tell the layers apart.</li></ul>",
+"starter": "import turtle\n\nt = turtle.Turtle()\n\n# Write your code below\n",
 "stdin": "",
-"explanation": "<p>Để các hình vuông cùng tâm, mỗi lần thu nhỏ cạnh đi <code>buoc</code> thì phải dịch điểm bắt đầu sang phải và lên trên đúng <code>buoc/2</code>. Nhấc bút (<code>penup</code>) khi di chuyển để không để lại nét thừa.</p><pre>import turtle\n\nt = turtle.Turtle()\nt.pensize(2)\n\nmau = [\"red\", \"orange\", \"green\", \"blue\", \"purple\"]\ncanh = 200\nbuoc = 40\n\nfor i in range(5):\n    t.pencolor(mau[i])\n    t.penup()\n    t.goto(-canh / 2, -canh / 2)\n    t.setheading(0)\n    t.pendown()\n    for j in range(4):\n        t.forward(canh)\n        t.left(90)\n    canh = canh - buoc\n\nturtle.done()</pre><p><code>setheading(0)</code> đặt lại hướng con rùa về phía đông trước mỗi hình vuông, đảm bảo cả năm hình đều thẳng hàng chứ không bị nghiêng dần.</p>"
+"explanation": "<p>To keep the squares concentric, every time you shrink the side by <code>step</code> you must shift the starting point right and up by exactly <code>step/2</code>. Lift the pen (<code>penup</code>) while moving so no stray lines are left behind.</p><pre>import turtle\n\nt = turtle.Turtle()\nt.pensize(2)\n\ncolors = [\"red\", \"orange\", \"green\", \"blue\", \"purple\"]\nside = 200\nstep = 40\n\nfor i in range(5):\n    t.pencolor(colors[i])\n    t.penup()\n    t.goto(-side / 2, -side / 2)\n    t.setheading(0)\n    t.pendown()\n    for j in range(4):\n        t.forward(side)\n        t.left(90)\n    side = side - step\n\nturtle.done()</pre><p><code>setheading(0)</code> resets the turtle to face east before each square, making sure all five squares line up instead of tilting gradually.</p>"
 },
 {
-"title": "Đổi chữ hoa thành chữ thường và ngược lại",
-"goal": "Phương thức chuỗi",
-"level": "Dễ",
+"title": "Convert uppercase to lowercase and vice versa",
+"goal": "String methods",
+"level": "Easy",
 "kind": "python",
 "disp": "4",
-"prompt": "<p class=\"prompt\">Nhập vào một chuỗi, in ra phiên bản toàn chữ hoa, phiên bản toàn chữ thường, và phiên bản mỗi chữ cái được đảo ngược hoa/thường.</p><p class=\"prompt expect\"><span class=\"expect-tag\">Kết quả mong đợi</span>Ba phiên bản của chuỗi được in ra màn hình.</p>",
-"hint": "<strong>Gợi ý</strong><ul class=\"hint-list\"><li><code>chuoi.upper()</code> chuyển toàn bộ thành chữ hoa.</li><li><code>chuoi.lower()</code> chuyển toàn bộ thành chữ thường.</li><li><code>chuoi.swapcase()</code> đảo ngược hoa/thường của từng ký tự.</li></ul>",
-"starter": "chuoi = input(\"Nhập một chuỗi: \")\n\n# Viết code của bạn ở đây\n",
-"stdin": "Xin Chao Viet Nam",
-"explanation": "<p>Cả ba phương thức đều <em>trả về chuỗi mới</em> chứ không sửa chuỗi gốc. Sau khi chạy xong, biến <code>chuoi</code> vẫn giữ nguyên nội dung bạn đã nhập.</p><pre>chuoi = input(\"Nhập một chuỗi: \")\n\nprint(\"Chữ hoa:      \", chuoi.upper())\nprint(\"Chữ thường:   \", chuoi.lower())\nprint(\"Đảo hoa/thường:\", chuoi.swapcase())\nprint(\"Chuỗi gốc:    \", chuoi)</pre><p>Đây là tính chất chung của chuỗi trong Python: chuỗi là <em>bất biến</em> (immutable), nên mọi thao tác đều tạo ra chuỗi mới.</p>"
+"prompt": "<p class=\"prompt\">Enter a string, then print an all-uppercase version, an all-lowercase version, and a version where the case of every letter is swapped.</p><p class=\"prompt expect\"><span class=\"expect-tag\">Expected output</span>Three versions of the string printed to the screen.</p>",
+"hint": "<strong>Hint</strong><ul class=\"hint-list\"><li><code>text.upper()</code> converts everything to uppercase.</li><li><code>text.lower()</code> converts everything to lowercase.</li><li><code>text.swapcase()</code> swaps the case of each character.</li></ul>",
+"starter": "text = input(\"Enter a string: \")\n\n# Write your code below\n",
+"stdin": "Hello Python World",
+"explanation": "<p>All three methods <em>return a new string</em> and do not modify the original. After they run, the variable <code>text</code> still holds exactly what you typed in.</p><pre>text = input(\"Enter a string: \")\n\nprint(\"Uppercase:    \", text.upper())\nprint(\"Lowercase:    \", text.lower())\nprint(\"Swapped case: \", text.swapcase())\nprint(\"Original:     \", text)</pre><p>This is a general property of strings in Python: strings are <em>immutable</em>, so every operation produces a new string.</p>"
 },
 {
-"title": "Vẽ hình chữ thập (dấu cộng)",
-"goal": "Turtle · danh sách độ dài cạnh",
-"level": "Dễ",
+"title": "Draw a cross (plus sign)",
+"goal": "Turtle · list of side lengths",
+"level": "Easy",
 "kind": "turtle",
 "disp": "5",
-"prompt": "<p class=\"prompt\">Dùng Turtle vẽ một hình chữ thập (dấu cộng) gồm hai hình chữ nhật bằng nhau chồng vuông góc lên nhau.</p><p class=\"prompt expect\"><span class=\"expect-tag\">Kết quả mong đợi</span>Một hình chữ thập cân đối.</p>",
-"hint": "<strong>Gợi ý</strong><ul class=\"hint-list\"><li>Có thể coi hình chữ thập như 12 cạnh nối tiếp nhau, mỗi lần rẽ 90 độ.</li><li>Dùng vòng lặp <code>for</code> lặp lại 4 lần một cụm 3 cạnh giống nhau.</li><li>Thử tô màu đỏ bên trong để giống biểu tượng dấu cộng y tế.</li></ul>",
-"starter": "import turtle\n\nt = turtle.Turtle()\n\n# Viết code của bạn ở đây\n",
+"prompt": "<p class=\"prompt\">Use Turtle to draw a cross (plus sign) made of two equal rectangles overlapping at right angles.</p><p class=\"prompt expect\"><span class=\"expect-tag\">Expected output</span>A well-balanced cross.</p>",
+"hint": "<strong>Hint</strong><ul class=\"hint-list\"><li>You can think of the cross as 12 sides in a row, turning 90 degrees each time.</li><li>Use a <code>for</code> loop to repeat the same group of 3 sides 4 times.</li><li>Try filling it with red to make it look like a medical plus symbol.</li></ul>",
+"starter": "import turtle\n\nt = turtle.Turtle()\n\n# Write your code below\n",
 "stdin": "",
-"explanation": "<p>Hình chữ thập có tính đối xứng xoay 90 độ: cùng một cụm ba cạnh (tiến – rẽ phải – tiến – rẽ trái – tiến) lặp lại đúng 4 lần là khép kín.</p><pre>import turtle\n\nt = turtle.Turtle()\nt.pensize(2)\nt.pencolor(\"darkred\")\nt.fillcolor(\"red\")\n\ncanh = 60\n\nt.penup()\nt.goto(-30, -90)\nt.pendown()\n\nt.begin_fill()\nfor i in range(4):\n    t.forward(canh)\n    t.left(90)\n    t.forward(canh)\n    t.right(90)\n    t.forward(canh)\n    t.right(90)\nt.end_fill()\n\nturtle.done()</pre><p>Nếu hình bị hở, hãy đếm lại tổng góc quay: bốn lần lặp phải quay tổng cộng đúng 360 độ thì con rùa mới về lại đúng điểm xuất phát.</p>"
+"explanation": "<p>The cross has 90-degree rotational symmetry: the same group of three sides (forward – turn right – forward – turn left – forward) repeated exactly 4 times closes the shape.</p><pre>import turtle\n\nt = turtle.Turtle()\nt.pensize(2)\nt.pencolor(\"darkred\")\nt.fillcolor(\"red\")\n\nside = 60\n\nt.penup()\nt.goto(-30, -90)\nt.pendown()\n\nt.begin_fill()\nfor i in range(4):\n    t.forward(side)\n    t.left(90)\n    t.forward(side)\n    t.right(90)\n    t.forward(side)\n    t.right(90)\nt.end_fill()\n\nturtle.done()</pre><p>If the shape has a gap, recount the total turning angle: four repetitions must turn exactly 360 degrees in total for the turtle to return to its starting point.</p>"
 },
 {
-"title": "Tính trung bình cộng của ba số",
-"goal": "input · phép toán số học",
-"level": "Dễ",
+"title": "Calculate the average of three numbers",
+"goal": "input · arithmetic operations",
+"level": "Easy",
 "kind": "python",
 "disp": "6",
-"prompt": "<p class=\"prompt\">Nhập vào ba số, tính và in ra trung bình cộng của ba số đó.</p><p class=\"prompt expect\"><span class=\"expect-tag\">Kết quả mong đợi</span>In ra giá trị trung bình cộng của ba số đã nhập.</p>",
-"hint": "<strong>Gợi ý</strong><ul class=\"hint-list\"><li>Trung bình cộng = tổng ba số chia cho 3.</li><li>Nhớ chuyển giá trị nhập từ <code>input()</code> sang kiểu <code>float()</code> trước khi tính.</li><li>Có thể làm tròn kết quả bằng hàm <code>round()</code> cho dễ đọc.</li></ul>",
-"starter": "# Viết code của bạn ở đây\n",
+"prompt": "<p class=\"prompt\">Enter three numbers, then calculate and print their average.</p><p class=\"prompt expect\"><span class=\"expect-tag\">Expected output</span>The average of the three numbers you entered.</p>",
+"hint": "<strong>Hint</strong><ul class=\"hint-list\"><li>Average = the sum of the three numbers divided by 3.</li><li>Remember to convert the values from <code>input()</code> to <code>float()</code> before calculating.</li><li>You can round the result with <code>round()</code> to make it easier to read.</li></ul>",
+"starter": "# Write your code below\n",
 "stdin": "7\n8.5\n9",
-"explanation": "<p><code>input()</code> luôn trả về chuỗi, nên <code>\"7\" + \"8\"</code> sẽ cho <code>\"78\"</code> chứ không phải 15. Đó là lý do phải chuyển kiểu trước khi cộng.</p><pre>a = float(input(\"Số thứ nhất: \"))\nb = float(input(\"Số thứ hai: \"))\nc = float(input(\"Số thứ ba: \"))\n\ntrung_binh = (a + b + c) / 3\n\nprint(\"Trung bình cộng:\", round(trung_binh, 2))</pre><p>Dùng <code>/</code> chứ đừng dùng <code>//</code>: phép chia lấy nguyên sẽ làm mất phần thập phân của kết quả.</p>"
+"explanation": "<p><code>input()</code> always returns a string, so <code>\"7\" + \"8\"</code> gives <code>\"78\"</code>, not 15. That is why you must convert the type before adding.</p><pre>a = float(input(\"First number: \"))\nb = float(input(\"Second number: \"))\nc = float(input(\"Third number: \"))\n\naverage = (a + b + c) / 3\n\nprint(\"Average:\", round(average, 2))</pre><p>Use <code>/</code>, not <code>//</code>: floor division would throw away the decimal part of the result.</p>"
 },
 {
-"title": "Vẽ hình thoi",
-"goal": "Turtle · góc quay",
-"level": "Dễ",
+"title": "Draw a rhombus",
+"goal": "Turtle · turning angles",
+"level": "Easy",
 "kind": "turtle",
 "disp": "7",
-"prompt": "<p class=\"prompt\">Dùng Turtle vẽ một hình thoi có cạnh dài 100 đơn vị, các góc lần lượt là 60 độ và 120 độ.</p><p class=\"prompt expect\"><span class=\"expect-tag\">Kết quả mong đợi</span>Một hình thoi cạnh 100 đơn vị.</p>",
-"hint": "<strong>Gợi ý</strong><ul class=\"hint-list\"><li>Hình thoi có 4 cạnh bằng nhau nhưng góc không vuông như hình vuông.</li><li>Dùng <code>for i in range(2)</code> với hai lần <code>forward(100)</code> và hai góc rẽ khác nhau.</li><li>Thử tô màu bên trong bằng <code>begin_fill()</code> / <code>end_fill()</code>.</li></ul>",
-"starter": "import turtle\n\nt = turtle.Turtle()\n\n# Viết code của bạn ở đây\n",
+"prompt": "<p class=\"prompt\">Use Turtle to draw a rhombus with sides 100 units long, with angles of 60 degrees and 120 degrees in turn.</p><p class=\"prompt expect\"><span class=\"expect-tag\">Expected output</span>A rhombus with 100-unit sides.</p>",
+"hint": "<strong>Hint</strong><ul class=\"hint-list\"><li>A rhombus has 4 equal sides, but its angles are not right angles like a square's.</li><li>Use <code>for i in range(2)</code> with two <code>forward(100)</code> calls and two different turn angles.</li><li>Try filling the inside with <code>begin_fill()</code> / <code>end_fill()</code>.</li></ul>",
+"starter": "import turtle\n\nt = turtle.Turtle()\n\n# Write your code below\n",
 "stdin": "",
-"explanation": "<p>Góc rẽ của con rùa là <em>góc ngoài</em>, không phải góc trong của hình. Góc trong 60 độ ứng với góc rẽ 120 độ, và ngược lại — cộng lại luôn bằng 180.</p><pre>import turtle\n\nt = turtle.Turtle()\nt.pensize(3)\nt.pencolor(\"purple\")\nt.fillcolor(\"violet\")\n\nt.begin_fill()\nfor i in range(2):\n    t.forward(100)\n    t.left(60)\n    t.forward(100)\n    t.left(120)\nt.end_fill()\n\nturtle.done()</pre><p>Tổng các góc rẽ vẫn là 60 + 120 + 60 + 120 = 360 độ, đúng như mọi đa giác khép kín khác.</p>"
+"explanation": "<p>The turtle's turn angle is the <em>exterior angle</em>, not the interior angle of the shape. An interior angle of 60 degrees corresponds to a turn of 120 degrees, and vice versa — the two always add up to 180.</p><pre>import turtle\n\nt = turtle.Turtle()\nt.pensize(3)\nt.pencolor(\"purple\")\nt.fillcolor(\"violet\")\n\nt.begin_fill()\nfor i in range(2):\n    t.forward(100)\n    t.left(60)\n    t.forward(100)\n    t.left(120)\nt.end_fill()\n\nturtle.done()</pre><p>The turns still add up to 60 + 120 + 60 + 120 = 360 degrees, just like every other closed polygon.</p>"
 },
 {
-"title": "Kiểm tra năm nhuận",
-"goal": "Toán tử % · điều kiện ghép",
-"level": "Dễ",
+"title": "Check for a leap year",
+"goal": "The % operator · compound conditions",
+"level": "Easy",
 "kind": "python",
 "disp": "8",
-"prompt": "<p class=\"prompt\">Nhập vào một năm, kiểm tra xem năm đó có phải là năm nhuận hay không.</p><p class=\"prompt expect\"><span class=\"expect-tag\">Kết quả mong đợi</span>In ra 'Năm nhuận' hoặc 'Không phải năm nhuận'.</p>",
-"hint": "<strong>Gợi ý</strong><ul class=\"hint-list\"><li>Năm nhuận nếu chia hết cho 4, trừ khi chia hết cho 100 mà không chia hết cho 400.</li><li>Dùng toán tử <code>%</code> kết hợp <code>and</code> / <code>or</code>.</li><li>Thử với 2000 (nhuận), 1900 (không nhuận), 2024 (nhuận).</li></ul>",
-"starter": "nam = int(input(\"Nhập năm: \"))\n\n# Viết code của bạn ở đây\n",
+"prompt": "<p class=\"prompt\">Enter a year and check whether it is a leap year.</p><p class=\"prompt expect\"><span class=\"expect-tag\">Expected output</span>Print 'Leap year' or 'Not a leap year'.</p>",
+"hint": "<strong>Hint</strong><ul class=\"hint-list\"><li>A year is a leap year if it is divisible by 4, unless it is divisible by 100 but not by 400.</li><li>Use the <code>%</code> operator together with <code>and</code> / <code>or</code>.</li><li>Try 2000 (leap), 1900 (not leap) and 2024 (leap).</li></ul>",
+"starter": "year = int(input(\"Enter a year: \"))\n\n# Write your code below\n",
 "stdin": "1900",
-"explanation": "<p>Quy tắc có ba tầng, nhưng gói gọn được trong một biểu thức: chia hết cho 4 <em>và</em> (không chia hết cho 100 <em>hoặc</em> chia hết cho 400).</p><pre>nam = int(input(\"Nhập năm: \"))\n\nif nam % 4 == 0 and (nam % 100 != 0 or nam % 400 == 0):\n    print(nam, \"là năm nhuận\")\nelse:\n    print(nam, \"không phải năm nhuận\")</pre><p>Năm 1900 chia hết cho 4 và cho 100 nhưng không chia hết cho 400, nên <em>không</em> nhuận — đây chính là trường hợp mà quy tắc 'chia hết cho 4' đơn giản sẽ trả lời sai.</p>"
+"explanation": "<p>The rule has three layers, but it fits into a single expression: divisible by 4 <em>and</em> (not divisible by 100 <em>or</em> divisible by 400).</p><pre>year = int(input(\"Enter a year: \"))\n\nif year % 4 == 0 and (year % 100 != 0 or year % 400 == 0):\n    print(year, \"is a leap year\")\nelse:\n    print(year, \"is not a leap year\")</pre><p>The year 1900 is divisible by 4 and by 100 but not by 400, so it is <em>not</em> a leap year — exactly the case where the simple 'divisible by 4' rule would give the wrong answer.</p>"
 },
 {
-"title": "Tính diện tích và chu vi hình chữ nhật",
-"goal": "input · công thức",
-"level": "Dễ",
+"title": "Calculate the area and perimeter of a rectangle",
+"goal": "input · formulas",
+"level": "Easy",
 "kind": "python",
 "disp": "9",
-"prompt": "<p class=\"prompt\">Nhập vào chiều dài và chiều rộng của một hình chữ nhật, tính và in ra diện tích và chu vi của hình chữ nhật đó.</p><p class=\"prompt expect\"><span class=\"expect-tag\">Kết quả mong đợi</span>In ra diện tích và chu vi của hình chữ nhật.</p>",
-"hint": "<strong>Gợi ý</strong><ul class=\"hint-list\"><li>Diện tích = chiều dài × chiều rộng.</li><li>Chu vi = (chiều dài + chiều rộng) × 2.</li><li>Nhớ chuyển giá trị nhập sang kiểu số trước khi tính toán.</li></ul>",
-"starter": "# Viết code của bạn ở đây\n",
+"prompt": "<p class=\"prompt\">Enter the length and width of a rectangle, then calculate and print its area and perimeter.</p><p class=\"prompt expect\"><span class=\"expect-tag\">Expected output</span>Print the area and perimeter of the rectangle.</p>",
+"hint": "<strong>Hint</strong><ul class=\"hint-list\"><li>Area = length × width.</li><li>Perimeter = (length + width) × 2.</li><li>Remember to convert the input to a number type before calculating.</li></ul>",
+"starter": "# Write your code below\n",
 "stdin": "12\n5",
-"explanation": "<p>Bài này chủ yếu luyện thói quen tách rõ ba bước: nhập dữ liệu, tính toán, rồi mới in kết quả. Giữ ba bước tách bạch sẽ giúp bạn dễ tìm lỗi hơn nhiều.</p><pre>dai = float(input(\"Chiều dài: \"))\nrong = float(input(\"Chiều rộng: \"))\n\ndien_tich = dai * rong\nchu_vi = (dai + rong) * 2\n\nprint(\"Diện tích:\", dien_tich)\nprint(\"Chu vi:   \", chu_vi)</pre><p>Chú ý dấu ngoặc trong công thức chu vi. Viết <code>dai + rong * 2</code> sẽ chỉ nhân chiều rộng với 2, vì <code>*</code> được ưu tiên hơn <code>+</code>.</p>"
+"explanation": "<p>This exercise mainly builds the habit of keeping three steps clearly separate: input, calculation, and only then output. Keeping them apart makes it much easier to track down bugs.</p><pre>length = float(input(\"Length: \"))\nwidth = float(input(\"Width: \"))\n\narea = length * width\nperimeter = (length + width) * 2\n\nprint(\"Area:     \", area)\nprint(\"Perimeter:\", perimeter)</pre><p>Watch the parentheses in the perimeter formula. Writing <code>length + width * 2</code> would only multiply the width by 2, because <code>*</code> takes precedence over <code>+</code>.</p>"
 },
 {
-"title": "Đổi nhiệt độ từ độ C sang độ F",
-"goal": "input · công thức",
-"level": "Dễ",
+"title": "Convert temperature from Celsius to Fahrenheit",
+"goal": "input · formulas",
+"level": "Easy",
 "kind": "python",
 "disp": "10",
-"prompt": "<p class=\"prompt\">Nhập vào nhiệt độ theo độ C (Celsius), tính và in ra nhiệt độ tương ứng theo độ F (Fahrenheit).</p><p class=\"prompt expect\"><span class=\"expect-tag\">Kết quả mong đợi</span>In ra nhiệt độ theo độ F tương ứng.</p>",
-"hint": "<strong>Gợi ý</strong><ul class=\"hint-list\"><li>Công thức chuyển đổi: <code>F = C * 9/5 + 32</code>.</li><li>Nhớ chuyển giá trị nhập sang kiểu <code>float()</code> trước khi tính.</li><li>Có thể làm tròn kết quả bằng hàm <code>round()</code>.</li></ul>",
-"starter": "# Viết code của bạn ở đây\n",
+"prompt": "<p class=\"prompt\">Enter a temperature in degrees Celsius, then calculate and print the equivalent in degrees Fahrenheit.</p><p class=\"prompt expect\"><span class=\"expect-tag\">Expected output</span>Print the matching temperature in degrees Fahrenheit.</p>",
+"hint": "<strong>Hint</strong><ul class=\"hint-list\"><li>Conversion formula: <code>F = C * 9/5 + 32</code>.</li><li>Remember to convert the input to <code>float()</code> before calculating.</li><li>You can round the result with the <code>round()</code> function.</li></ul>",
+"starter": "# Write your code below\n",
 "stdin": "37",
-"explanation": "<p>Trong Python 3, <code>9/5</code> cho kết quả 1.8 đúng như mong đợi. Ở Python 2 thì phép chia hai số nguyên sẽ ra 1, và công thức sẽ sai — đây là một trong những khác biệt hay gặp nhất giữa hai phiên bản.</p><pre>c = float(input(\"Nhiệt độ (°C): \"))\n\nf = c * 9 / 5 + 32\n\nprint(c, \"°C =\", round(f, 1), \"°F\")</pre><p>Thử với 0 (ra 32 °F), 100 (ra 212 °F) và -40 (ra đúng -40 °F — mốc duy nhất mà hai thang đo trùng nhau).</p>"
+"explanation": "<p>In Python 3, <code>9/5</code> gives 1.8, just as you would expect. In Python 2, dividing two integers would give 1 and the formula would be wrong — one of the most common differences between the two versions.</p><pre>c = float(input(\"Temperature (°C): \"))\n\nf = c * 9 / 5 + 32\n\nprint(c, \"°C =\", round(f, 1), \"°F\")</pre><p>Try 0 (gives 32 °F), 100 (gives 212 °F) and -40 (gives exactly -40 °F — the only point where the two scales meet).</p>"
 },
 {
-"title": "Làm quen Turtle: vẽ đường thẳng và đổi màu bút",
+"title": "Getting to know Turtle: draw a line and change the pen color",
 "goal": "Turtle · pencolor, pensize",
-"level": "Dễ",
+"level": "Easy",
 "kind": "turtle",
 "disp": "11",
-"prompt": "<p class=\"prompt\">Bài tập đầu tiên để làm quen với Turtle: vẽ một đoạn thẳng dài 200 đơn vị, sau đó thử thay đổi màu bút (<code>pencolor</code>) và độ dày nét vẽ (<code>pensize</code>) để quan sát sự thay đổi.</p><p class=\"prompt expect\"><span class=\"expect-tag\">Kết quả mong đợi</span>Một đoạn thẳng màu đỏ, dày hơn bình thường.</p>",
-"hint": "<strong>Gợi ý</strong><ul class=\"hint-list\"><li>Dùng <code>import turtle</code>, sau đó <code>t = turtle.Turtle()</code> để tạo một con rùa vẽ.</li><li>Dùng <code>t.forward(200)</code> để vẽ đoạn thẳng dài 200 đơn vị.</li><li>Thử các lệnh <code>t.pencolor('red')</code> và <code>t.pensize(5)</code> trước khi vẽ.</li></ul>",
-"starter": "import turtle\n\n# Viết code của bạn ở đây\n",
+"prompt": "<p class=\"prompt\">The first exercise to get familiar with Turtle: draw a straight line 200 units long, then try changing the pen color (<code>pencolor</code>) and the line thickness (<code>pensize</code>) to see what changes.</p><p class=\"prompt expect\"><span class=\"expect-tag\">Expected output</span>A red straight line, thicker than normal.</p>",
+"hint": "<strong>Hint</strong><ul class=\"hint-list\"><li>Use <code>import turtle</code>, then <code>t = turtle.Turtle()</code> to create a drawing turtle.</li><li>Use <code>t.forward(200)</code> to draw a straight line 200 units long.</li><li>Try the commands <code>t.pencolor('red')</code> and <code>t.pensize(5)</code> before drawing.</li></ul>",
+"starter": "import turtle\n\n# Write your code below\n",
 "stdin": "",
-"explanation": "<p>Thứ tự lệnh rất quan trọng: <code>pencolor</code> và <code>pensize</code> chỉ ảnh hưởng tới những nét vẽ <em>sau</em> chúng. Đổi màu sau khi đã vẽ xong thì nét cũ vẫn giữ màu cũ.</p><pre>import turtle\n\nt = turtle.Turtle()\n\n# Nét mặc định: mảnh, màu đen\nt.penup()\nt.goto(-100, 40)\nt.pendown()\nt.forward(200)\n\n# Đổi bút rồi vẽ tiếp, ngay bên dưới để dễ so sánh\nt.penup()\nt.goto(-100, -40)\nt.pendown()\n\nt.pencolor(\"red\")\nt.pensize(5)\nt.forward(200)\n\nturtle.done()</pre><p>Đó cũng là lý do ta cần <code>penup()</code> trước khi nhảy sang vị trí mới: nếu không, con rùa sẽ kéo theo một nét thừa nối hai đoạn thẳng.</p>"
+"explanation": "<p>The order of the commands matters: <code>pencolor</code> and <code>pensize</code> only affect the strokes drawn <em>after</em> them. If you change the color after drawing, the old stroke keeps its old color.</p><pre>import turtle\n\nt = turtle.Turtle()\n\n# Default stroke: thin, black\nt.penup()\nt.goto(-100, 40)\nt.pendown()\nt.forward(200)\n\n# Change the pen, then draw again just below for easy comparison\nt.penup()\nt.goto(-100, -40)\nt.pendown()\n\nt.pencolor(\"red\")\nt.pensize(5)\nt.forward(200)\n\nturtle.done()</pre><p>That is also why we need <code>penup()</code> before jumping to a new position: otherwise the turtle would drag a stray line connecting the two segments.</p>"
 },
 {
-"title": "Máy tính đơn giản (cộng, trừ, nhân, chia)",
-"goal": "if-elif-else · xử lý lỗi",
-"level": "Dễ",
+"title": "Simple calculator (add, subtract, multiply, divide)",
+"goal": "if-elif-else · error handling",
+"level": "Easy",
 "kind": "python",
 "disp": "12",
-"prompt": "<p class=\"prompt\">Người dùng nhập vào hai số và một phép toán (+, -, *, /), chương trình thực hiện phép tính tương ứng và in ra kết quả. Sử dụng cấu trúc <code>if-elif-else</code>.</p><p class=\"prompt expect\"><span class=\"expect-tag\">Kết quả mong đợi</span>In ra kết quả của phép tính tương ứng.</p>",
-"hint": "<strong>Gợi ý</strong><ul class=\"hint-list\"><li>Dùng <code>input()</code> để nhận hai số (nhớ <code>float()</code>) và một ký tự phép toán.</li><li>Dùng <code>if-elif-else</code> để xử lý từng trường hợp.</li><li>Nhớ kiểm tra trường hợp chia cho 0 để tránh lỗi chương trình.</li></ul>",
-"starter": "a = float(input(\"Số thứ nhất: \"))\nphep = input(\"Phép toán (+ - * /): \")\nb = float(input(\"Số thứ hai: \"))\n\n# Viết code của bạn ở đây\n",
+"prompt": "<p class=\"prompt\">The user enters two numbers and an operator (+, -, *, /), and the program performs the matching calculation and prints the result. Use an <code>if-elif-else</code> structure.</p><p class=\"prompt expect\"><span class=\"expect-tag\">Expected output</span>Print the result of the matching calculation.</p>",
+"hint": "<strong>Hint</strong><ul class=\"hint-list\"><li>Use <code>input()</code> to read two numbers (remember <code>float()</code>) and one operator character.</li><li>Use <code>if-elif-else</code> to handle each case.</li><li>Remember to check for division by 0 so the program doesn't crash.</li></ul>",
+"starter": "a = float(input(\"First number: \"))\nop = input(\"Operator (+ - * /): \")\nb = float(input(\"Second number: \"))\n\n# Write your code below\n",
 "stdin": "10\n/\n0",
-"explanation": "<p>Hai trường hợp cần chặn riêng: phép toán lạ, và chia cho 0. Nhánh <code>else</code> cuối cùng bắt mọi ký tự không hợp lệ, còn chia 0 phải kiểm tra <em>bên trong</em> nhánh chia.</p><pre>a = float(input(\"Số thứ nhất: \"))\nphep = input(\"Phép toán (+ - * /): \")\nb = float(input(\"Số thứ hai: \"))\n\nif phep == \"+\":\n    print(a + b)\nelif phep == \"-\":\n    print(a - b)\nelif phep == \"*\":\n    print(a * b)\nelif phep == \"/\":\n    if b == 0:\n        print(\"Lỗi: không thể chia cho 0\")\n    else:\n        print(a / b)\nelse:\n    print(\"Phép toán không hợp lệ:\", phep)</pre><p>Nếu bỏ qua bước kiểm tra <code>b == 0</code>, Python sẽ ném ra <code>ZeroDivisionError</code> và chương trình dừng hẳn — người dùng chỉ thấy một thông báo lỗi khó hiểu thay vì lời nhắc lịch sự.</p>"
+"explanation": "<p>Two cases need to be blocked separately: an unknown operator, and division by 0. The final <code>else</code> branch catches every invalid character, while division by 0 must be checked <em>inside</em> the division branch.</p><pre>a = float(input(\"First number: \"))\nop = input(\"Operator (+ - * /): \")\nb = float(input(\"Second number: \"))\n\nif op == \"+\":\n    print(a + b)\nelif op == \"-\":\n    print(a - b)\nelif op == \"*\":\n    print(a * b)\nelif op == \"/\":\n    if b == 0:\n        print(\"Error: cannot divide by 0\")\n    else:\n        print(a / b)\nelse:\n    print(\"Invalid operator:\", op)</pre><p>If you skip the <code>b == 0</code> check, Python raises a <code>ZeroDivisionError</code> and the program stops dead — the user sees only a confusing error message instead of a polite one.</p>"
 },
 {
-"title": "Vẽ hình lục giác đều",
+"title": "Draw a regular hexagon",
 "goal": "Turtle · 360/n",
-"level": "Dễ",
+"level": "Easy",
 "kind": "turtle",
 "disp": "13",
-"prompt": "<p class=\"prompt\">Dùng Turtle vẽ một hình lục giác đều (6 cạnh) có cạnh dài 80 đơn vị, sử dụng vòng lặp <code>for</code>.</p><p class=\"prompt expect\"><span class=\"expect-tag\">Kết quả mong đợi</span>Một hình lục giác đều cạnh 80 đơn vị.</p>",
-"hint": "<strong>Gợi ý</strong><ul class=\"hint-list\"><li>Lục giác đều có 6 cạnh bằng nhau, góc quay ở mỗi đỉnh là 360 / 6 = 60 độ.</li><li>Dùng <code>for i in range(6)</code> với <code>forward(80)</code> và <code>right(60)</code>.</li><li>Thử tô màu bên trong bằng <code>t.begin_fill()</code> và <code>t.end_fill()</code>.</li></ul>",
-"starter": "import turtle\n\nt = turtle.Turtle()\n\n# Viết code của bạn ở đây\n",
+"prompt": "<p class=\"prompt\">Use Turtle to draw a regular hexagon (6 sides) with sides 80 units long, using a <code>for</code> loop.</p><p class=\"prompt expect\"><span class=\"expect-tag\">Expected output</span>A regular hexagon with 80-unit sides.</p>",
+"hint": "<strong>Hint</strong><ul class=\"hint-list\"><li>A regular hexagon has 6 equal sides, and the turn angle at each corner is 360 / 6 = 60 degrees.</li><li>Use <code>for i in range(6)</code> with <code>forward(80)</code> and <code>right(60)</code>.</li><li>Try filling the inside with <code>t.begin_fill()</code> and <code>t.end_fill()</code>.</li></ul>",
+"starter": "import turtle\n\nt = turtle.Turtle()\n\n# Write your code below\n",
 "stdin": "",
-"explanation": "<p>Quy tắc chung cho mọi đa giác đều: con rùa đi hết một vòng nên tổng góc quay phải bằng 360 độ. Chia đều cho số cạnh ta được góc quay ở mỗi đỉnh.</p><pre>import turtle\n\nt = turtle.Turtle()\nt.pensize(3)\nt.pencolor(\"darkgreen\")\nt.fillcolor(\"lightgreen\")\n\nt.begin_fill()\nfor i in range(6):\n    t.forward(80)\n    t.right(60)\nt.end_fill()\n\nturtle.done()</pre><p>Đổi <code>range(6)</code> và <code>right(60)</code> thành <code>range(5)</code> và <code>right(72)</code> là bạn có ngay ngũ giác đều.</p>"
+"explanation": "<p>The general rule for every regular polygon: the turtle goes all the way around once, so the total turning angle must be 360 degrees. Divide that evenly by the number of sides and you get the turn angle at each corner.</p><pre>import turtle\n\nt = turtle.Turtle()\nt.pensize(3)\nt.pencolor(\"darkgreen\")\nt.fillcolor(\"lightgreen\")\n\nt.begin_fill()\nfor i in range(6):\n    t.forward(80)\n    t.right(60)\nt.end_fill()\n\nturtle.done()</pre><p>Change <code>range(6)</code> and <code>right(60)</code> to <code>range(5)</code> and <code>right(72)</code> and you instantly get a regular pentagon.</p>"
 },
 {
-"title": "Kiểm tra số chẵn hay số lẻ",
-"goal": "Toán tử chia lấy dư",
-"level": "Dễ",
+"title": "Check whether a number is even or odd",
+"goal": "The remainder operator",
+"level": "Easy",
 "kind": "python",
 "disp": "14",
-"prompt": "<p class=\"prompt\">Nhập vào một số nguyên và kiểm tra xem đó là số chẵn hay số lẻ, sau đó in kết quả ra màn hình.</p><p class=\"prompt expect\"><span class=\"expect-tag\">Kết quả mong đợi</span>In ra 'Số chẵn' hoặc 'Số lẻ'.</p>",
-"hint": "<strong>Gợi ý</strong><ul class=\"hint-list\"><li>Số chia hết cho 2 (dư 0) là số chẵn, ngược lại là số lẻ.</li><li>Dùng toán tử <code>%</code>: <code>if so % 2 == 0</code>.</li><li>Nhớ chuyển giá trị <code>input()</code> sang kiểu <code>int()</code>.</li></ul>",
-"starter": "# Viết code của bạn ở đây\n",
+"prompt": "<p class=\"prompt\">Enter an integer and check whether it is even or odd, then print the result to the screen.</p><p class=\"prompt expect\"><span class=\"expect-tag\">Expected output</span>Print 'Even number' or 'Odd number'.</p>",
+"hint": "<strong>Hint</strong><ul class=\"hint-list\"><li>A number divisible by 2 (remainder 0) is even; otherwise it is odd.</li><li>Use the <code>%</code> operator: <code>if number % 2 == 0</code>.</li><li>Remember to convert the <code>input()</code> value to <code>int()</code>.</li></ul>",
+"starter": "# Write your code below\n",
 "stdin": "-7",
-"explanation": "<p><code>%</code> cho phần dư của phép chia. Với số âm, Python luôn trả về phần dư cùng dấu với số chia, nên <code>-7 % 2</code> ra 1 chứ không phải -1 — công thức vẫn đúng cho cả số âm.</p><pre>so = int(input(\"Nhập một số nguyên: \"))\n\nif so % 2 == 0:\n    print(so, \"là số chẵn\")\nelse:\n    print(so, \"là số lẻ\")</pre><p>Cách viết này an toàn hơn <code>if so % 2 == 1</code>, vì với số âm ở một số ngôn ngữ khác phần dư có thể mang dấu âm và điều kiện sẽ không bao giờ đúng.</p>"
+"explanation": "<p><code>%</code> gives the remainder of a division. For negative numbers, Python always returns a remainder with the same sign as the divisor, so <code>-7 % 2</code> is 1, not -1 — the formula still works for negative numbers.</p><pre>number = int(input(\"Enter an integer: \"))\n\nif number % 2 == 0:\n    print(number, \"is even\")\nelse:\n    print(number, \"is odd\")</pre><p>This is safer than <code>if number % 2 == 1</code>, because in some other languages the remainder of a negative number can be negative and that condition would never be true.</p>"
 },
 {
-"title": "Vẽ hình chữ nhật theo kích thước tùy chọn",
+"title": "Draw a rectangle with custom dimensions",
 "goal": "Turtle · input",
-"level": "Dễ",
+"level": "Easy",
 "kind": "turtle",
 "disp": "15",
-"prompt": "<p class=\"prompt\">Nhập vào chiều dài và chiều rộng, sau đó dùng Turtle vẽ một hình chữ nhật với kích thước tương ứng.</p><p class=\"prompt expect\"><span class=\"expect-tag\">Kết quả mong đợi</span>Một hình chữ nhật đúng kích thước người dùng nhập.</p>",
-"hint": "<strong>Gợi ý</strong><ul class=\"hint-list\"><li>Hình chữ nhật có hai cặp cạnh đối diện bằng nhau, các góc đều vuông.</li><li>Dùng <code>for i in range(2)</code> với hai cạnh và hai lần <code>right(90)</code>.</li><li>Nhớ chuyển giá trị nhập sang kiểu số bằng <code>float()</code> hoặc <code>int()</code>.</li></ul>",
-"starter": "import turtle\n\ndai = float(input(\"Chiều dài: \"))\nrong = float(input(\"Chiều rộng: \"))\n\nt = turtle.Turtle()\n\n# Viết code của bạn ở đây\n",
+"prompt": "<p class=\"prompt\">Enter a length and a width, then use Turtle to draw a rectangle with those dimensions.</p><p class=\"prompt expect\"><span class=\"expect-tag\">Expected output</span>A rectangle with exactly the dimensions the user entered.</p>",
+"hint": "<strong>Hint</strong><ul class=\"hint-list\"><li>A rectangle has two pairs of equal opposite sides, and all its angles are right angles.</li><li>Use <code>for i in range(2)</code> with two sides and two <code>right(90)</code> turns.</li><li>Remember to convert the input to a number with <code>float()</code> or <code>int()</code>.</li></ul>",
+"starter": "import turtle\n\nlength = float(input(\"Length: \"))\nwidth = float(input(\"Width: \"))\n\nt = turtle.Turtle()\n\n# Write your code below\n",
 "stdin": "220\n120",
-"explanation": "<p>Vì hình chữ nhật đối xứng, ta chỉ cần lặp hai lần một cặp cạnh dài–rộng thay vì viết bốn lệnh <code>forward</code> riêng.</p><pre>import turtle\n\ndai = float(input(\"Chiều dài: \"))\nrong = float(input(\"Chiều rộng: \"))\n\nt = turtle.Turtle()\nt.pensize(2)\nt.pencolor(\"navy\")\n\nt.penup()\nt.goto(-dai / 2, -rong / 2)\nt.pendown()\n\nfor i in range(2):\n    t.forward(dai)\n    t.left(90)\n    t.forward(rong)\n    t.left(90)\n\nturtle.done()</pre><p>Dòng <code>goto(-dai/2, -rong/2)</code> đưa góc dưới bên trái ra đúng vị trí để hình nằm giữa màn hình, dù người dùng nhập kích thước nào.</p>"
+"explanation": "<p>Because a rectangle is symmetric, we only need to repeat a length–width pair of sides twice instead of writing four separate <code>forward</code> commands.</p><pre>import turtle\n\nlength = float(input(\"Length: \"))\nwidth = float(input(\"Width: \"))\n\nt = turtle.Turtle()\nt.pensize(2)\nt.pencolor(\"navy\")\n\nt.penup()\nt.goto(-length / 2, -width / 2)\nt.pendown()\n\nfor i in range(2):\n    t.forward(length)\n    t.left(90)\n    t.forward(width)\n    t.left(90)\n\nturtle.done()</pre><p>The line <code>goto(-length/2, -width/2)</code> puts the bottom-left corner in exactly the right place so the shape sits in the middle of the screen, whatever size the user enters.</p>"
 },
 {
-"title": "Nhập tên và tuổi, in lời chào",
+"title": "Enter a name and age, print a greeting",
 "goal": "input · f-string",
-"level": "Dễ",
+"level": "Easy",
 "kind": "python",
 "disp": "16",
-"prompt": "<p class=\"prompt\">Yêu cầu người dùng nhập vào họ tên và tuổi, sau đó in ra một câu chào thân thiện có chứa tên và tuổi vừa nhập, ví dụ: 'Xin chào Nam, bạn 20 tuổi!'.</p><p class=\"prompt expect\"><span class=\"expect-tag\">Kết quả mong đợi</span>Một dòng chào hỏi hiển thị đúng tên và tuổi.</p>",
-"hint": "<strong>Gợi ý</strong><ul class=\"hint-list\"><li><code>input()</code> luôn trả về kiểu chuỗi (<code>str</code>).</li><li>Nếu cần tính toán với tuổi, phải chuyển sang số nguyên bằng <code>int()</code>.</li><li>Dùng f-string, ví dụ <code>f'Xin chào {ten}, bạn {tuoi} tuổi!'</code>.</li></ul>",
-"starter": "# Viết code của bạn ở đây\n",
+"prompt": "<p class=\"prompt\">Ask the user to enter their full name and age, then print a friendly greeting containing the name and age they entered, for example: 'Hello Nam, you are 20 years old!'.</p><p class=\"prompt expect\"><span class=\"expect-tag\">Expected output</span>A greeting line that shows the correct name and age.</p>",
+"hint": "<strong>Hint</strong><ul class=\"hint-list\"><li><code>input()</code> always returns a string (<code>str</code>).</li><li>If you need to do arithmetic with the age, convert it to an integer with <code>int()</code>.</li><li>Use an f-string, for example <code>f'Hello {name}, you are {age} years old!'</code>.</li></ul>",
+"starter": "# Write your code below\n",
 "stdin": "Nam\n20",
-"explanation": "<p>f-string (chuỗi bắt đầu bằng <code>f</code>) cho phép nhúng thẳng biến vào trong dấu ngoặc nhọn, gọn hơn nhiều so với việc nối chuỗi bằng dấu <code>+</code>.</p><pre>ten = input(\"Họ tên của bạn: \")\ntuoi = int(input(\"Tuổi của bạn: \"))\n\nprint(f\"Xin chào {ten}, bạn {tuoi} tuổi!\")\nprint(f\"Sang năm bạn sẽ {tuoi + 1} tuổi.\")</pre><p>Vì đã chuyển <code>tuoi</code> sang <code>int</code>, ta tính được <code>tuoi + 1</code> ngay bên trong f-string. Nếu để nguyên chuỗi thì <code>\"20\" + 1</code> sẽ báo lỗi.</p>"
+"explanation": "<p>An f-string (a string starting with <code>f</code>) lets you embed variables directly inside curly braces, which is much tidier than joining strings with the <code>+</code> sign.</p><pre>name = input(\"Your full name: \")\nage = int(input(\"Your age: \"))\n\nprint(f\"Hello {name}, you are {age} years old!\")\nprint(f\"Next year you will be {age + 1} years old.\")</pre><p>Because <code>age</code> was converted to <code>int</code>, we can calculate <code>age + 1</code> right inside the f-string. If you left it as a string, <code>\"20\" + 1</code> would raise an error.</p>"
 },
 {
-"title": "Vẽ hình tam giác đều",
-"goal": "Turtle · vòng lặp for",
-"level": "Dễ",
+"title": "Draw an equilateral triangle",
+"goal": "Turtle · for loop",
+"level": "Easy",
 "kind": "turtle",
 "disp": "17",
-"prompt": "<p class=\"prompt\">Dùng Turtle vẽ một hình tam giác đều có cạnh dài 100 đơn vị, sử dụng vòng lặp <code>for</code>.</p><p class=\"prompt expect\"><span class=\"expect-tag\">Kết quả mong đợi</span>Một hình tam giác đều cạnh 100 đơn vị.</p>",
-"hint": "<strong>Gợi ý</strong><ul class=\"hint-list\"><li>Tam giác đều có 3 cạnh bằng nhau, mỗi lần rẽ một góc 120 độ.</li><li>Dùng <code>for i in range(3)</code> với <code>forward(100)</code> và <code>right(120)</code>.</li><li>Thử đổi màu bút bằng <code>t.pencolor('blue')</code> trước khi vẽ.</li></ul>",
-"starter": "import turtle\n\nt = turtle.Turtle()\n\n# Viết code của bạn ở đây\n",
+"prompt": "<p class=\"prompt\">Use Turtle to draw an equilateral triangle with sides 100 units long, using a <code>for</code> loop.</p><p class=\"prompt expect\"><span class=\"expect-tag\">Expected output</span>An equilateral triangle with 100-unit sides.</p>",
+"hint": "<strong>Hint</strong><ul class=\"hint-list\"><li>An equilateral triangle has 3 equal sides, turning 120 degrees each time.</li><li>Use <code>for i in range(3)</code> with <code>forward(100)</code> and <code>right(120)</code>.</li><li>Try changing the pen color with <code>t.pencolor('blue')</code> before drawing.</li></ul>",
+"starter": "import turtle\n\nt = turtle.Turtle()\n\n# Write your code below\n",
 "stdin": "",
-"explanation": "<p>Góc trong của tam giác đều là 60 độ, nhưng con rùa rẽ theo <em>góc ngoài</em> là 120 độ. Ba lần 120 vừa đúng 360 độ, nên hình khép kín.</p><pre>import turtle\n\nt = turtle.Turtle()\nt.pensize(3)\nt.pencolor(\"blue\")\n\nfor i in range(3):\n    t.forward(100)\n    t.right(120)\n\nturtle.done()</pre><p>Với <code>right(120)</code> tam giác quay đỉnh xuống dưới; đổi thành <code>left(120)</code> thì nó lật lại, đỉnh hướng lên. Cả hai đều là tam giác đều, chỉ khác chiều vẽ.</p>"
+"explanation": "<p>The interior angle of an equilateral triangle is 60 degrees, but the turtle turns by the <em>exterior angle</em>, 120 degrees. Three turns of 120 add up to exactly 360 degrees, so the shape closes.</p><pre>import turtle\n\nt = turtle.Turtle()\nt.pensize(3)\nt.pencolor(\"blue\")\n\nfor i in range(3):\n    t.forward(100)\n    t.right(120)\n\nturtle.done()</pre><p>With <code>right(120)</code> the triangle points downward; change it to <code>left(120)</code> and it flips over, with the apex pointing up. Both are equilateral triangles, just drawn in opposite directions.</p>"
 },
 {
-"title": "Tính tổng các số từ 1 đến n",
-"goal": "Vòng lặp for · biến tích lũy",
-"level": "Dễ",
+"title": "Calculate the sum of the numbers from 1 to n",
+"goal": "for loop · accumulator variable",
+"level": "Easy",
 "kind": "python",
 "disp": "18",
-"prompt": "<p class=\"prompt\">Nhập vào một số nguyên dương n, tính tổng tất cả các số nguyên từ 1 đến n (1 + 2 + 3 + ... + n) bằng vòng lặp <code>for</code>.</p><p class=\"prompt expect\"><span class=\"expect-tag\">Kết quả mong đợi</span>In ra tổng các số từ 1 đến n.</p>",
-"hint": "<strong>Gợi ý</strong><ul class=\"hint-list\"><li>Khởi tạo biến <code>tong = 0</code> trước vòng lặp.</li><li>Dùng <code>for i in range(1, n+1): tong += i</code>.</li><li>So sánh kết quả với công thức Gauss: <code>n * (n+1) / 2</code>.</li></ul>",
-"starter": "n = int(input(\"Nhập n: \"))\n\n# Viết code của bạn ở đây\n",
+"prompt": "<p class=\"prompt\">Enter a positive integer n, then calculate the sum of all the integers from 1 to n (1 + 2 + 3 + ... + n) using a <code>for</code> loop.</p><p class=\"prompt expect\"><span class=\"expect-tag\">Expected output</span>Print the sum of the numbers from 1 to n.</p>",
+"hint": "<strong>Hint</strong><ul class=\"hint-list\"><li>Initialize the variable <code>total = 0</code> before the loop.</li><li>Use <code>for i in range(1, n+1): total += i</code>.</li><li>Compare your result with Gauss's formula: <code>n * (n+1) / 2</code>.</li></ul>",
+"starter": "n = int(input(\"Enter n: \"))\n\n# Write your code below\n",
 "stdin": "100",
-"explanation": "<p>Hai chi tiết dễ sai: khởi tạo <code>tong = 0</code> phải nằm <em>ngoài</em> vòng lặp, và <code>range(1, n+1)</code> cần <code>+1</code> vì <code>range</code> không bao gồm giá trị cuối.</p><pre>n = int(input(\"Nhập n: \"))\n\ntong = 0\nfor i in range(1, n + 1):\n    tong += i\n\nprint(\"Tổng từ 1 đến\", n, \"là:\", tong)\nprint(\"Kiểm tra bằng công thức Gauss:\", n * (n + 1) // 2)</pre><p>Công thức Gauss cho ra kết quả tức thì mà không cần lặp. Với n = 100 cả hai cách đều cho 5050 — đúng như cậu bé Gauss đã tính nhẩm trong lớp học ngày xưa.</p>"
+"explanation": "<p>Two details are easy to get wrong: the initialization <code>total = 0</code> must sit <em>outside</em> the loop, and <code>range(1, n+1)</code> needs the <code>+1</code> because <code>range</code> does not include its end value.</p><pre>n = int(input(\"Enter n: \"))\n\ntotal = 0\nfor i in range(1, n + 1):\n    total += i\n\nprint(\"The sum from 1 to\", n, \"is:\", total)\nprint(\"Check with Gauss's formula:\", n * (n + 1) // 2)</pre><p>Gauss's formula gives the result instantly, with no loop. With n = 100 both methods give 5050 — exactly what the young Gauss famously worked out in his head in class long ago.</p>"
 },
 {
-"title": "Vẽ hình vuông đơn giản",
+"title": "Draw a simple square",
 "goal": "Turtle · forward, right",
-"level": "Dễ",
+"level": "Easy",
 "kind": "turtle",
 "disp": "19",
-"prompt": "<p class=\"prompt\">Chương trình đầu tiên sử dụng thư viện turtle để vẽ một hình vuông có cạnh dài 100 đơn vị. Đây là bài tập làm quen với các lệnh <code>forward()</code> và <code>right()</code>.</p><p class=\"prompt expect\"><span class=\"expect-tag\">Kết quả mong đợi</span>Một hình vuông cạnh 100 đơn vị.</p>",
-"hint": "<strong>Gợi ý</strong><ul class=\"hint-list\"><li>Import thư viện bằng lệnh <code>import turtle</code>.</li><li>Một hình vuông có 4 cạnh bằng nhau và 4 góc vuông (90 độ).</li><li>Dùng <code>for i in range(4)</code> để không phải lặp lại lệnh 4 lần.</li></ul>",
-"starter": "import turtle\n\n# Viết code của bạn ở đây\n",
+"prompt": "<p class=\"prompt\">A first program using the turtle library to draw a square with sides 100 units long. This exercise gets you familiar with the <code>forward()</code> and <code>right()</code> commands.</p><p class=\"prompt expect\"><span class=\"expect-tag\">Expected output</span>A square with 100-unit sides.</p>",
+"hint": "<strong>Hint</strong><ul class=\"hint-list\"><li>Import the library with <code>import turtle</code>.</li><li>A square has 4 equal sides and 4 right angles (90 degrees).</li><li>Use <code>for i in range(4)</code> so you don't have to repeat the commands 4 times.</li></ul>",
+"starter": "import turtle\n\n# Write your code below\n",
 "stdin": "",
-"explanation": "<p>Bốn dòng lệnh lặp lại y hệt nhau là dấu hiệu rõ ràng rằng nên dùng vòng lặp. Vòng lặp <code>for</code> vừa ngắn hơn, vừa dễ sửa hơn khi muốn đổi kích thước.</p><pre>import turtle\n\nt = turtle.Turtle()\nt.pensize(3)\nt.pencolor(\"black\")\n\nfor i in range(4):\n    t.forward(100)\n    t.right(90)\n\nturtle.done()</pre><p>Muốn hình vuông to gấp đôi, bạn chỉ cần sửa đúng một con số. Nếu viết bốn lệnh riêng thì phải sửa bốn chỗ, và rất dễ quên một chỗ.</p>"
+"explanation": "<p>Four identical lines of code in a row is a clear sign that you should use a loop. A <code>for</code> loop is both shorter and easier to change when you want a different size.</p><pre>import turtle\n\nt = turtle.Turtle()\nt.pensize(3)\nt.pencolor(\"black\")\n\nfor i in range(4):\n    t.forward(100)\n    t.right(90)\n\nturtle.done()</pre><p>To make the square twice as big, you only need to change one number. If you had written four separate commands you would have to change four places, and it would be very easy to miss one.</p>"
 },
 {
-"title": "Chương trình FizzBuzz",
-"goal": "Vòng lặp · thứ tự điều kiện",
-"level": "Dễ",
+"title": "FizzBuzz program",
+"goal": "Loops · order of conditions",
+"level": "Easy",
 "kind": "python",
 "disp": "20",
-"prompt": "<p class=\"prompt\">In ra các số từ 1 đến 100. Với các số chia hết cho 3, in ra 'Fizz' thay vì số đó. Với các số chia hết cho 5, in ra 'Buzz'. Với các số chia hết cho cả 3 và 5, in ra 'FizzBuzz'.</p><p class=\"prompt expect\"><span class=\"expect-tag\">Kết quả mong đợi</span>100 dòng gồm số, 'Fizz', 'Buzz' hoặc 'FizzBuzz'.</p>",
-"hint": "<strong>Gợi ý</strong><ul class=\"hint-list\"><li>Dùng toán tử chia lấy dư <code>%</code> để kiểm tra số chia hết.</li><li>Kiểm tra điều kiện chia hết cho cả 3 và 5 <em>trước tiên</em> (dùng <code>and</code>).</li><li>Dùng vòng lặp <code>for i in range(1, 101)</code>.</li></ul>",
-"starter": "# Viết code của bạn ở đây\n",
+"prompt": "<p class=\"prompt\">Print the numbers from 1 to 100. For numbers divisible by 3, print 'Fizz' instead of the number. For numbers divisible by 5, print 'Buzz'. For numbers divisible by both 3 and 5, print 'FizzBuzz'.</p><p class=\"prompt expect\"><span class=\"expect-tag\">Expected output</span>100 lines made up of numbers, 'Fizz', 'Buzz' or 'FizzBuzz'.</p>",
+"hint": "<strong>Hint</strong><ul class=\"hint-list\"><li>Use the remainder operator <code>%</code> to check divisibility.</li><li>Check the condition for divisible by both 3 and 5 <em>first</em> (use <code>and</code>).</li><li>Use a <code>for i in range(1, 101)</code> loop.</li></ul>",
+"starter": "# Write your code below\n",
 "stdin": "",
-"explanation": "<p>Điểm mấu chốt của bài này là <em>thứ tự</em> các điều kiện. Nếu kiểm tra <code>i % 3 == 0</code> trước, thì số 15 sẽ rơi vào nhánh đó và in ra 'Fizz', không bao giờ tới được 'FizzBuzz'.</p><pre>for i in range(1, 101):\n    if i % 3 == 0 and i % 5 == 0:\n        print(\"FizzBuzz\")\n    elif i % 3 == 0:\n        print(\"Fizz\")\n    elif i % 5 == 0:\n        print(\"Buzz\")\n    else:\n        print(i)</pre><p>Điều kiện chặt nhất phải đứng đầu. Đây là nguyên tắc chung khi viết chuỗi <code>if-elif</code>: đi từ trường hợp cụ thể nhất đến trường hợp tổng quát nhất.</p>"
+"explanation": "<p>The key point of this exercise is the <em>order</em> of the conditions. If you check <code>i % 3 == 0</code> first, the number 15 falls into that branch and prints 'Fizz', never reaching 'FizzBuzz'.</p><pre>for i in range(1, 101):\n    if i % 3 == 0 and i % 5 == 0:\n        print(\"FizzBuzz\")\n    elif i % 3 == 0:\n        print(\"Fizz\")\n    elif i % 5 == 0:\n        print(\"Buzz\")\n    else:\n        print(i)</pre><p>The strictest condition must come first. This is a general principle when writing an <code>if-elif</code> chain: go from the most specific case to the most general.</p>"
 },
 {
-"title": "Vẽ chong chóng gió nhiều màu",
-"goal": "Turtle · hàm tự định nghĩa",
-"level": "Trung bình",
+"title": "Draw a colorful pinwheel",
+"goal": "Turtle · user-defined functions",
+"level": "Medium",
 "kind": "turtle",
 "disp": "21",
-"prompt": "<p class=\"prompt\">Dùng Turtle vẽ một chong chóng gió (pinwheel): 4 hoặc 8 hình tam giác nhỏ xếp đối xứng quanh một tâm, mỗi tam giác một màu khác nhau.</p><p class=\"prompt expect\"><span class=\"expect-tag\">Kết quả mong đợi</span>Một chong chóng gió nhiều màu, các cánh xếp đối xứng quanh tâm.</p>",
-"hint": "<strong>Gợi ý</strong><ul class=\"hint-list\"><li>Vẽ một tam giác nhỏ, tô màu, quay lại tâm, xoay một góc rồi vẽ tam giác tiếp theo.</li><li>Dùng <code>for i in range(so_canh)</code> với <code>t.right(360 / so_canh)</code>.</li><li>Đổi màu cho mỗi cánh bằng cách lấy màu từ một danh sách theo chỉ số <code>i</code>.</li></ul>",
-"starter": "import turtle\n\nt = turtle.Turtle()\n\n# Viết code của bạn ở đây\n",
+"prompt": "<p class=\"prompt\">Use Turtle to draw a pinwheel: 4 or 8 small triangles arranged symmetrically around a center, each triangle a different color.</p><p class=\"prompt expect\"><span class=\"expect-tag\">Expected output</span>A colorful pinwheel with its blades arranged symmetrically around the center.</p>",
+"hint": "<strong>Hint</strong><ul class=\"hint-list\"><li>Draw one small triangle, fill it, go back to the center, rotate by an angle, then draw the next triangle.</li><li>Use <code>for i in range(num_blades)</code> with <code>t.right(360 / num_blades)</code>.</li><li>Change the color for each blade by picking the color from a list using the index <code>i</code>.</li></ul>",
+"starter": "import turtle\n\nt = turtle.Turtle()\n\n# Write your code below\n",
 "stdin": "",
-"explanation": "<p>Tách phần vẽ một cánh ra thành hàm riêng giúp vòng lặp chính chỉ còn hai việc: gọi hàm vẽ, rồi xoay sang vị trí tiếp theo. Quan trọng là sau mỗi cánh con rùa phải quay đúng về tâm.</p><pre>import turtle\n\nt = turtle.Turtle()\nt.speed(0)\nt.pensize(2)\n\nmau = [\"red\", \"orange\", \"gold\", \"green\", \"blue\", \"purple\", \"magenta\", \"cyan\"]\nso_canh = 8\n\ndef ve_canh(canh):\n    t.begin_fill()\n    for i in range(3):\n        t.forward(canh)\n        t.left(120)\n    t.end_fill()\n\nfor i in range(so_canh):\n    t.fillcolor(mau[i % len(mau)])\n    t.pencolor(mau[i % len(mau)])\n    ve_canh(100)\n    t.right(360 / so_canh)\n\nturtle.done()</pre><p>Vì tam giác khép kín nên sau <code>ve_canh()</code> con rùa đã tự về đúng điểm xuất phát. Ta chỉ cần xoay hướng, không cần <code>goto</code> về tâm.</p>"
+"explanation": "<p>Splitting the drawing of a single blade into its own function leaves the main loop with just two jobs: call the drawing function, then rotate to the next position. What matters is that after each blade the turtle is back exactly at the center.</p><pre>import turtle\n\nt = turtle.Turtle()\nt.speed(0)\nt.pensize(2)\n\ncolors = [\"red\", \"orange\", \"gold\", \"green\", \"blue\", \"purple\", \"magenta\", \"cyan\"]\nnum_blades = 8\n\ndef draw_blade(size):\n    t.begin_fill()\n    for i in range(3):\n        t.forward(size)\n        t.left(120)\n    t.end_fill()\n\nfor i in range(num_blades):\n    t.fillcolor(colors[i % len(colors)])\n    t.pencolor(colors[i % len(colors)])\n    draw_blade(100)\n    t.right(360 / num_blades)\n\nturtle.done()</pre><p>Because the triangle closes, after <code>draw_blade()</code> the turtle has already returned to its exact starting point. We only need to rotate its heading; there is no need for a <code>goto</code> back to the center.</p>"
 },
 {
-"title": "Đếm số từ trong một câu",
-"goal": "split() · tìm phần tử lớn nhất",
-"level": "Trung bình",
+"title": "Count the words in a sentence",
+"goal": "split() · finding the largest element",
+"level": "Medium",
 "kind": "python",
 "disp": "22",
-"prompt": "<p class=\"prompt\">Nhập vào một câu văn, đếm xem câu đó có bao nhiêu từ, sau đó in ra từ dài nhất trong câu.</p><p class=\"prompt expect\"><span class=\"expect-tag\">Kết quả mong đợi</span>In ra số từ trong câu và từ dài nhất tìm được.</p>",
-"hint": "<strong>Gợi ý</strong><ul class=\"hint-list\"><li>Dùng <code>cau.split()</code> để tách câu thành danh sách các từ.</li><li>Dùng <code>len(danh_sach_tu)</code> để đếm số từ.</li><li>Duyệt qua danh sách từ, so sánh độ dài từng từ để tìm từ dài nhất.</li></ul>",
-"starter": "cau = input(\"Nhập một câu: \")\n\n# Viết code của bạn ở đây\n",
-"stdin": "Hom nay troi nang dep va chung toi di hoc lap trinh Python",
-"explanation": "<p><code>split()</code> không tham số sẽ tự động cắt theo mọi khoảng trắng và bỏ qua khoảng trắng thừa — tiện hơn <code>split(\" \")</code>, vốn sẽ tạo ra các chuỗi rỗng khi có hai dấu cách liền nhau.</p><pre>cau = input(\"Nhập một câu: \")\n\ntu = cau.split()\n\nprint(\"Số từ:\", len(tu))\n\ndai_nhat = tu[0]\nfor t in tu:\n    if len(t) &gt; len(dai_nhat):\n        dai_nhat = t\n\nprint(\"Từ dài nhất:\", dai_nhat, \"-\", len(dai_nhat), \"ký tự\")</pre><p>Cách tìm phần tử lớn nhất này là mẫu chung rất hay gặp: giữ một biến 'quán quân tạm thời', duyệt qua từng phần tử và thay thế nếu gặp phần tử tốt hơn.</p>"
+"prompt": "<p class=\"prompt\">Enter a sentence, count how many words it contains, then print the longest word in the sentence.</p><p class=\"prompt expect\"><span class=\"expect-tag\">Expected output</span>Print the number of words in the sentence and the longest word found.</p>",
+"hint": "<strong>Hint</strong><ul class=\"hint-list\"><li>Use <code>sentence.split()</code> to break the sentence into a list of words.</li><li>Use <code>len(words)</code> to count the words.</li><li>Go through the list of words, comparing the length of each one to find the longest.</li></ul>",
+"starter": "sentence = input(\"Enter a sentence: \")\n\n# Write your code below\n",
+"stdin": "The weather is lovely today and we are learning Python programming",
+"explanation": "<p><code>split()</code> with no arguments automatically splits on any whitespace and ignores extra whitespace — handier than <code>split(\" \")</code>, which produces empty strings when there are two spaces in a row.</p><pre>sentence = input(\"Enter a sentence: \")\n\nwords = sentence.split()\n\nprint(\"Word count:\", len(words))\n\nlongest = words[0]\nfor word in words:\n    if len(word) &gt; len(longest):\n        longest = word\n\nprint(\"Longest word:\", longest, \"-\", len(longest), \"characters\")</pre><p>This way of finding the largest item is a very common pattern: keep a 'temporary champion' variable, go through each element, and replace it whenever you meet a better one.</p>"
 },
 {
-"title": "Vẽ bảng caro đơn giản",
-"goal": "Turtle · vòng lặp lồng nhau",
-"level": "Trung bình",
+"title": "Draw a simple checkered grid",
+"goal": "Turtle · nested loops",
+"level": "Medium",
 "kind": "turtle",
 "disp": "23",
-"prompt": "<p class=\"prompt\">Dùng Turtle vẽ một bảng caro (lưới ô vuông) kích thước n × n (ví dụ 4×4), gồm các đường kẻ ngang và dọc cách đều nhau.</p><p class=\"prompt expect\"><span class=\"expect-tag\">Kết quả mong đợi</span>Một lưới ô vuông đều nhau, giống bàn cờ caro.</p>",
-"hint": "<strong>Gợi ý</strong><ul class=\"hint-list\"><li>Dùng hai vòng lặp <code>for</code>: một vòng vẽ các đường kẻ ngang, một vòng vẽ các đường kẻ dọc.</li><li>Dùng <code>penup()</code> / <code>pendown()</code> để di chuyển bút đến vị trí bắt đầu mỗi đường kẻ.</li><li>Có thể tô xen kẽ màu đen/trắng cho từng ô để giống bàn cờ vua.</li></ul>",
-"starter": "import turtle\n\nt = turtle.Turtle()\n\n# Viết code của bạn ở đây\n",
+"prompt": "<p class=\"prompt\">Use Turtle to draw a checkered grid (a grid of squares) of size n × n (for example 4×4), made of evenly spaced horizontal and vertical lines.</p><p class=\"prompt expect\"><span class=\"expect-tag\">Expected output</span>A grid of equal squares, like a checkered board.</p>",
+"hint": "<strong>Hint</strong><ul class=\"hint-list\"><li>Use two <code>for</code> loops: one to draw the horizontal lines, one to draw the vertical lines.</li><li>Use <code>penup()</code> / <code>pendown()</code> to move the pen to the start of each line.</li><li>You can fill the squares alternately black/white to make it look like a chessboard.</li></ul>",
+"starter": "import turtle\n\nt = turtle.Turtle()\n\n# Write your code below\n",
 "stdin": "",
-"explanation": "<p>Một lưới n×n cần <code>n+1</code> đường kẻ mỗi chiều — dễ quên mất đường viền ngoài cùng. Mỗi đường kẻ là một lần nhấc bút, di chuyển, hạ bút rồi vẽ.</p><pre>import turtle\n\nt = turtle.Turtle()\nt.speed(0)\nt.pensize(2)\n\nn = 4\no = 60\ntong = n * o\ngoc = -tong / 2\n\n# Đường kẻ ngang\nfor i in range(n + 1):\n    t.penup()\n    t.goto(goc, goc + i * o)\n    t.setheading(0)\n    t.pendown()\n    t.forward(tong)\n\n# Đường kẻ dọc\nfor i in range(n + 1):\n    t.penup()\n    t.goto(goc + i * o, goc)\n    t.setheading(90)\n    t.pendown()\n    t.forward(tong)\n\nt.hideturtle()\nturtle.done()</pre><p><code>setheading(0)</code> và <code>setheading(90)</code> đặt hướng tuyệt đối (đông và bắc), nên bạn không cần theo dõi con rùa đang quay về đâu sau đường kẻ trước.</p>"
+"explanation": "<p>An n×n grid needs <code>n+1</code> lines in each direction — it is easy to forget the outermost border line. Each line is one pen lift, move, pen drop, then draw.</p><pre>import turtle\n\nt = turtle.Turtle()\nt.speed(0)\nt.pensize(2)\n\nn = 4\ncell = 60\ntotal = n * cell\ncorner = -total / 2\n\n# Horizontal lines\nfor i in range(n + 1):\n    t.penup()\n    t.goto(corner, corner + i * cell)\n    t.setheading(0)\n    t.pendown()\n    t.forward(total)\n\n# Vertical lines\nfor i in range(n + 1):\n    t.penup()\n    t.goto(corner + i * cell, corner)\n    t.setheading(90)\n    t.pendown()\n    t.forward(total)\n\nt.hideturtle()\nturtle.done()</pre><p><code>setheading(0)</code> and <code>setheading(90)</code> set absolute headings (east and north), so you don't have to keep track of which way the turtle was facing after the previous line.</p>"
 },
 {
-"title": "Chuyển đổi số thập phân sang nhị phân",
-"goal": "Vòng lặp while · phép chia lấy dư",
-"level": "Trung bình",
+"title": "Convert a decimal number to binary",
+"goal": "while loop · remainder operator",
+"level": "Medium",
 "kind": "python",
 "disp": "24",
-"prompt": "<p class=\"prompt\">Nhập vào một số nguyên dương, chuyển số đó sang hệ nhị phân mà không dùng hàm <code>bin()</code> có sẵn của Python.</p><p class=\"prompt expect\"><span class=\"expect-tag\">Kết quả mong đợi</span>In ra dạng nhị phân tương ứng với số nguyên đã nhập.</p>",
-"hint": "<strong>Gợi ý</strong><ul class=\"hint-list\"><li>Chia liên tiếp số cho 2, lấy số dư ở mỗi bước rồi ghép các số dư lại theo thứ tự ngược.</li><li>Dùng vòng lặp <code>while</code> với điều kiện dừng khi số bị chia bằng 0.</li><li>So sánh kết quả với <code>bin(so)[2:]</code> để kiểm tra lại.</li></ul>",
-"starter": "so = int(input(\"Nhập số nguyên dương: \"))\n\n# Viết code của bạn ở đây\n",
+"prompt": "<p class=\"prompt\">Enter a positive integer and convert it to binary without using Python's built-in <code>bin()</code> function.</p><p class=\"prompt expect\"><span class=\"expect-tag\">Expected output</span>Print the binary form of the integer you entered.</p>",
+"hint": "<strong>Hint</strong><ul class=\"hint-list\"><li>Repeatedly divide the number by 2, take the remainder at each step, then put the remainders together in reverse order.</li><li>Use a <code>while</code> loop that stops when the number being divided reaches 0.</li><li>Compare your result with <code>bin(number)[2:]</code> to double-check it.</li></ul>",
+"starter": "number = int(input(\"Enter a positive integer: \"))\n\n# Write your code below\n",
 "stdin": "25",
-"explanation": "<p>Các số dư sinh ra theo thứ tự từ bit thấp đến bit cao, nên phải <em>ghép ngược lại</em>. Cách gọn nhất là mỗi lần nối số dư mới vào <em>đầu</em> chuỗi kết quả.</p><pre>so = int(input(\"Nhập số nguyên dương: \"))\n\ngoc = so\nnhi_phan = \"\"\n\nif so == 0:\n    nhi_phan = \"0\"\n\nwhile so &gt; 0:\n    du = so % 2\n    nhi_phan = str(du) + nhi_phan\n    so = so // 2\n\nprint(goc, \"-&gt;\", nhi_phan)\nprint(\"Kiểm tra:\", bin(goc)[2:])</pre><p>Đừng quên trường hợp <code>so == 0</code>: vòng lặp <code>while</code> sẽ không chạy lần nào và kết quả sẽ là chuỗi rỗng nếu không xử lý riêng.</p>"
+"explanation": "<p>The remainders come out in order from the lowest bit to the highest, so they must be <em>put back in reverse</em>. The neatest way is to attach each new remainder to the <em>front</em> of the result string.</p><pre>number = int(input(\"Enter a positive integer: \"))\n\noriginal = number\nbinary = \"\"\n\nif number == 0:\n    binary = \"0\"\n\nwhile number &gt; 0:\n    remainder = number % 2\n    binary = str(remainder) + binary\n    number = number // 2\n\nprint(original, \"-&gt;\", binary)\nprint(\"Check:\", bin(original)[2:])</pre><p>Don't forget the case <code>number == 0</code>: the <code>while</code> loop won't run at all, and the result will be an empty string unless you handle it separately.</p>"
 },
 {
-"title": "Vẽ hoa nhiều cánh từ các vòng tròn xoay",
-"goal": "Turtle · circle() · xoay quanh tâm",
-"level": "Trung bình",
+"title": "Draw a multi-petal flower from rotated circles",
+"goal": "Turtle · circle() · rotating around the center",
+"level": "Medium",
 "kind": "turtle",
 "disp": "25",
-"prompt": "<p class=\"prompt\">Dùng Turtle vẽ một bông hoa nhiều cánh: vẽ đi vẽ lại một vòng tròn nhỏ, mỗi lần xoay thêm một góc cố định quanh tâm để tạo thành hình cánh hoa xếp vòng quanh.</p><p class=\"prompt expect\"><span class=\"expect-tag\">Kết quả mong đợi</span>Một bông hoa nhiều cánh đối xứng quanh tâm.</p>",
-"hint": "<strong>Gợi ý</strong><ul class=\"hint-list\"><li>Dùng <code>for i in range(so_canh): t.circle(ban_kinh); t.right(360 / so_canh)</code>.</li><li>Thử với <code>so_canh = 8</code> hoặc 12 để hoa có nhiều cánh hơn.</li><li>Có thể đổi màu cho từng cánh để bông hoa sinh động hơn.</li></ul>",
-"starter": "import turtle\n\nt = turtle.Turtle()\n\n# Viết code của bạn ở đây\n",
+"prompt": "<p class=\"prompt\">Use Turtle to draw a multi-petal flower: draw a small circle over and over, each time rotating by an extra fixed angle around the center, so the petals form a ring.</p><p class=\"prompt expect\"><span class=\"expect-tag\">Expected output</span>A multi-petal flower, symmetric around the center.</p>",
+"hint": "<strong>Hint</strong><ul class=\"hint-list\"><li>Use <code>for i in range(num_petals): t.circle(radius); t.right(360 / num_petals)</code>.</li><li>Try <code>num_petals = 8</code> or 12 to give the flower more petals.</li><li>You can change the color of each petal to make the flower livelier.</li></ul>",
+"starter": "import turtle\n\nt = turtle.Turtle()\n\n# Write your code below\n",
 "stdin": "",
-"explanation": "<p><code>circle()</code> vẽ xong sẽ đưa con rùa về đúng vị trí và hướng ban đầu. Nhờ vậy ta chỉ cần xoay một góc nhỏ rồi vẽ vòng tròn tiếp theo, các cánh sẽ tự xếp đều quanh tâm.</p><pre>import turtle\n\nt = turtle.Turtle()\nt.speed(0)\nt.pensize(2)\n\nmau = [\"red\", \"orange\", \"gold\", \"green\", \"blue\", \"purple\"]\nso_canh = 12\n\nfor i in range(so_canh):\n    t.pencolor(mau[i % len(mau)])\n    t.circle(90)\n    t.right(360 / so_canh)\n\nt.hideturtle()\nturtle.done()</pre><p>Càng nhiều cánh thì hoa càng dày. Thử <code>so_canh = 36</code> để thấy các vòng tròn chồng lên nhau tạo thành hoa văn gần giống Mandala ở bài 41.</p>"
+"explanation": "<p>After <code>circle()</code> finishes, the turtle is back at exactly its original position and heading. So we only need to rotate by a small angle and draw the next circle, and the petals arrange themselves evenly around the center.</p><pre>import turtle\n\nt = turtle.Turtle()\nt.speed(0)\nt.pensize(2)\n\ncolors = [\"red\", \"orange\", \"gold\", \"green\", \"blue\", \"purple\"]\nnum_petals = 12\n\nfor i in range(num_petals):\n    t.pencolor(colors[i % len(colors)])\n    t.circle(90)\n    t.right(360 / num_petals)\n\nt.hideturtle()\nturtle.done()</pre><p>The more petals, the denser the flower. Try <code>num_petals = 36</code> to see the circles overlap into a pattern much like the Mandala in exercise 41 of the handout.</p>"
 },
 {
-"title": "Tìm số lớn nhất và nhỏ nhất trong danh sách",
-"goal": "Duyệt danh sách · so sánh",
-"level": "Trung bình",
+"title": "Find the largest and smallest numbers in a list",
+"goal": "Traversing a list · comparison",
+"level": "Medium",
 "kind": "python",
 "disp": "26",
-"prompt": "<p class=\"prompt\">Cho một danh sách số, tìm giá trị lớn nhất và giá trị nhỏ nhất trong danh sách mà không dùng hàm <code>max()</code> hoặc <code>min()</code> có sẵn.</p><p class=\"prompt expect\"><span class=\"expect-tag\">Kết quả mong đợi</span>In ra giá trị lớn nhất và nhỏ nhất tìm được.</p>",
-"hint": "<strong>Gợi ý</strong><ul class=\"hint-list\"><li>Gán giá trị lớn nhất và nhỏ nhất ban đầu bằng phần tử đầu tiên của danh sách.</li><li>Duyệt qua từng phần tử còn lại, so sánh và cập nhật lại nếu cần.</li><li>So sánh kết quả với <code>max()</code> và <code>min()</code> để kiểm tra lại.</li></ul>",
-"starter": "danh_sach = [45, 12, 88, 3, 67, 91, 24, 56, 9, 73]\n\n# Viết code của bạn ở đây\n",
+"prompt": "<p class=\"prompt\">Given a list of numbers, find the largest and smallest values in the list without using the built-in <code>max()</code> or <code>min()</code> functions.</p><p class=\"prompt expect\"><span class=\"expect-tag\">Expected output</span>Print the largest and smallest values found.</p>",
+"hint": "<strong>Hint</strong><ul class=\"hint-list\"><li>Set the initial largest and smallest values to the first element of the list.</li><li>Go through each remaining element, compare it, and update the values if needed.</li><li>Compare your results with <code>max()</code> and <code>min()</code> to double-check them.</li></ul>",
+"starter": "numbers = [45, 12, 88, 3, 67, 91, 24, 56, 9, 73]\n\n# Write your code below\n",
 "stdin": "",
-"explanation": "<p>Điểm quan trọng là khởi tạo bằng <code>danh_sach[0]</code> chứ không phải bằng 0. Nếu khởi tạo <code>lon_nhat = 0</code> mà danh sách toàn số âm thì kết quả sẽ sai.</p><pre>danh_sach = [45, 12, 88, 3, 67, 91, 24, 56, 9, 73]\n\nlon_nhat = danh_sach[0]\nnho_nhat = danh_sach[0]\n\nfor so in danh_sach:\n    if so &gt; lon_nhat:\n        lon_nhat = so\n    if so &lt; nho_nhat:\n        nho_nhat = so\n\nprint(\"Danh sách:  \", danh_sach)\nprint(\"Lớn nhất:   \", lon_nhat)\nprint(\"Nhỏ nhất:   \", nho_nhat)\nprint(\"Kiểm tra:   \", max(danh_sach), min(danh_sach))</pre><p>Cả hai phép so sánh nằm trong <em>cùng một</em> vòng lặp, nên chỉ cần duyệt danh sách đúng một lần là tìm được cả hai giá trị.</p>"
+"explanation": "<p>The important point is to initialize with <code>numbers[0]</code>, not with 0. If you initialize <code>largest = 0</code> and the list is all negative numbers, the result will be wrong.</p><pre>numbers = [45, 12, 88, 3, 67, 91, 24, 56, 9, 73]\n\nlargest = numbers[0]\nsmallest = numbers[0]\n\nfor number in numbers:\n    if number &gt; largest:\n        largest = number\n    if number &lt; smallest:\n        smallest = number\n\nprint(\"List:      \", numbers)\nprint(\"Largest:   \", largest)\nprint(\"Smallest:  \", smallest)\nprint(\"Check:     \", max(numbers), min(numbers))</pre><p>Both comparisons sit in the <em>same</em> loop, so a single pass over the list finds both values.</p>"
 },
 {
-"title": "Vẽ hình bậc thang",
-"goal": "Turtle · lặp một cụm lệnh",
-"level": "Trung bình",
+"title": "Draw a staircase",
+"goal": "Turtle · repeating a group of commands",
+"level": "Medium",
 "kind": "turtle",
 "disp": "27",
-"prompt": "<p class=\"prompt\">Dùng Turtle vẽ một hình bậc thang gồm nhiều bậc bằng nhau, mỗi bậc gồm một đoạn ngang và một đoạn dọc nối tiếp nhau.</p><p class=\"prompt expect\"><span class=\"expect-tag\">Kết quả mong đợi</span>Một hình cầu thang với các bậc đều nhau, đi chéo lên góc màn hình.</p>",
-"hint": "<strong>Gợi ý</strong><ul class=\"hint-list\"><li>Một bậc thang gồm: <code>forward(do_dai)</code> rồi <code>left(90)</code>, <code>forward(do_dai)</code> rồi <code>right(90)</code>.</li><li>Dùng vòng lặp <code>for</code> để lặp lại số bậc mong muốn.</li><li>Thử đổi độ dài mỗi bậc để thấy cầu thang dốc hơn hoặc thoải hơn.</li></ul>",
-"starter": "import turtle\n\nt = turtle.Turtle()\n\n# Viết code của bạn ở đây\n",
+"prompt": "<p class=\"prompt\">Use Turtle to draw a staircase made of several equal steps, each step consisting of a horizontal segment and a vertical segment joined end to end.</p><p class=\"prompt expect\"><span class=\"expect-tag\">Expected output</span>A staircase with equal steps, climbing diagonally toward the corner of the screen.</p>",
+"hint": "<strong>Hint</strong><ul class=\"hint-list\"><li>One step consists of: <code>forward(length)</code> then <code>left(90)</code>, <code>forward(length)</code> then <code>right(90)</code>.</li><li>Use a <code>for</code> loop to repeat it for as many steps as you want.</li><li>Try changing the length of each step to see the staircase get steeper or gentler.</li></ul>",
+"starter": "import turtle\n\nt = turtle.Turtle()\n\n# Write your code below\n",
 "stdin": "",
-"explanation": "<p>Mỗi bậc là một cụm bốn lệnh: đi ngang, quay trái, đi lên, quay phải. Hai lần quay ngược chiều nhau triệt tiêu lẫn nhau, nên sau mỗi bậc con rùa lại hướng về phía đông như cũ.</p><pre>import turtle\n\nt = turtle.Turtle()\nt.pensize(3)\nt.pencolor(\"saddlebrown\")\n\ndo_dai = 40\nso_bac = 7\n\nt.penup()\nt.goto(-160, -140)\nt.pendown()\n\nfor i in range(so_bac):\n    t.forward(do_dai)\n    t.left(90)\n    t.forward(do_dai)\n    t.right(90)\n\nturtle.done()</pre><p>Muốn cầu thang dốc hơn, hãy tách riêng <code>rong</code> và <code>cao</code> thay vì dùng chung một biến <code>do_dai</code> cho cả hai chiều.</p>"
+"explanation": "<p>Each step is a group of four commands: go across, turn left, go up, turn right. The two turns in opposite directions cancel each other out, so after every step the turtle faces east again, just as before.</p><pre>import turtle\n\nt = turtle.Turtle()\nt.pensize(3)\nt.pencolor(\"saddlebrown\")\n\nlength = 40\nnum_steps = 7\n\nt.penup()\nt.goto(-160, -140)\nt.pendown()\n\nfor i in range(num_steps):\n    t.forward(length)\n    t.left(90)\n    t.forward(length)\n    t.right(90)\n\nturtle.done()</pre><p>To make the staircase steeper, use separate <code>width</code> and <code>height</code> variables instead of one shared <code>length</code> for both directions.</p>"
 },
 {
-"title": "Sắp xếp danh sách bằng thuật toán Selection Sort",
-"goal": "Vòng lặp lồng nhau · hoán đổi",
-"level": "Trung bình",
+"title": "Sort a list with the Selection Sort algorithm",
+"goal": "Nested loops · swapping",
+"level": "Medium",
 "kind": "python",
 "disp": "28",
-"prompt": "<p class=\"prompt\">Cài đặt thuật toán Selection Sort để sắp xếp một danh sách số nguyên tăng dần, không được dùng hàm <code>sort()</code> hoặc <code>sorted()</code> có sẵn.</p><p class=\"prompt expect\"><span class=\"expect-tag\">Kết quả mong đợi</span>Danh sách ban đầu và danh sách sau khi sắp xếp tăng dần.</p>",
-"hint": "<strong>Gợi ý</strong><ul class=\"hint-list\"><li>Ở mỗi vòng lặp, tìm phần tử nhỏ nhất trong phần chưa sắp xếp rồi đổi chỗ với phần tử đầu tiên của phần đó.</li><li>Cần hai vòng lặp lồng nhau: vòng ngoài duyệt vị trí, vòng trong tìm phần tử nhỏ nhất.</li><li>In ra danh sách sau mỗi vòng lặp ngoài để theo dõi quá trình sắp xếp.</li></ul>",
-"starter": "danh_sach = [64, 25, 12, 22, 11, 90, 34]\n\n# Viết code của bạn ở đây\n",
+"prompt": "<p class=\"prompt\">Implement the Selection Sort algorithm to sort a list of integers in ascending order, without using the built-in <code>sort()</code> or <code>sorted()</code> functions.</p><p class=\"prompt expect\"><span class=\"expect-tag\">Expected output</span>The original list and the list after sorting in ascending order.</p>",
+"hint": "<strong>Hint</strong><ul class=\"hint-list\"><li>On each pass, find the smallest element in the unsorted part and swap it with the first element of that part.</li><li>You need two nested loops: the outer loop walks through the positions, the inner loop finds the smallest element.</li><li>Print the list after each pass of the outer loop to follow the sorting process.</li></ul>",
+"starter": "numbers = [64, 25, 12, 22, 11, 90, 34]\n\n# Write your code below\n",
 "stdin": "",
-"explanation": "<p>Vòng ngoài giữ ranh giới giữa phần đã sắp xếp (bên trái) và phần chưa sắp xếp (bên phải). Vòng trong chỉ tìm <em>vị trí</em> của phần tử nhỏ nhất, việc hoán đổi để ra ngoài vòng trong — như vậy mỗi lượt chỉ đổi chỗ đúng một lần.</p><pre>danh_sach = [64, 25, 12, 22, 11, 90, 34]\n\nprint(\"Ban đầu:\", danh_sach)\n\nn = len(danh_sach)\nfor i in range(n - 1):\n    vi_tri_min = i\n    for j in range(i + 1, n):\n        if danh_sach[j] &lt; danh_sach[vi_tri_min]:\n            vi_tri_min = j\n\n    danh_sach[i], danh_sach[vi_tri_min] = danh_sach[vi_tri_min], danh_sach[i]\n    print(\"Lượt\", i + 1, \":\", danh_sach)\n\nprint(\"Kết quả: \", danh_sach)</pre><p>Dòng <code>a, b = b, a</code> là cách hoán đổi hai giá trị của Python — không cần biến tạm như ở nhiều ngôn ngữ khác.</p>"
+"explanation": "<p>The outer loop holds the boundary between the sorted part (on the left) and the unsorted part (on the right). The inner loop only finds the <em>position</em> of the smallest element; the swap happens outside the inner loop — so each pass makes exactly one swap.</p><pre>numbers = [64, 25, 12, 22, 11, 90, 34]\n\nprint(\"Original:\", numbers)\n\nn = len(numbers)\nfor i in range(n - 1):\n    min_index = i\n    for j in range(i + 1, n):\n        if numbers[j] &lt; numbers[min_index]:\n            min_index = j\n\n    numbers[i], numbers[min_index] = numbers[min_index], numbers[i]\n    print(\"Pass\", i + 1, \":\", numbers)\n\nprint(\"Result: \", numbers)</pre><p>The line <code>a, b = b, a</code> is Python's way of swapping two values — no temporary variable needed as in many other languages.</p>"
 },
 {
-"title": "Đếm số lần xuất hiện của từng ký tự trong chuỗi",
+"title": "Count how many times each character appears in a string",
 "goal": "Dictionary · get()",
-"level": "Trung bình",
+"level": "Medium",
 "kind": "python",
 "disp": "29",
-"prompt": "<p class=\"prompt\">Nhập vào một chuỗi, sau đó đếm và in ra số lần xuất hiện của mỗi ký tự trong chuỗi đó (không tính khoảng trắng), sử dụng dictionary.</p><p class=\"prompt expect\"><span class=\"expect-tag\">Kết quả mong đợi</span>Danh sách từng ký tự kèm số lần xuất hiện, ví dụ: 'a: 3, b: 1, ...'.</p>",
-"hint": "<strong>Gợi ý</strong><ul class=\"hint-list\"><li>Khởi tạo một <code>dict</code> rỗng, duyệt qua từng ký tự và tăng giá trị đếm tương ứng.</li><li>Có thể dùng <code>dem.get(ky_tu, 0) + 1</code> để vừa lấy vừa cập nhật giá trị đếm.</li><li>Bỏ qua khoảng trắng bằng cách kiểm tra <code>if ky_tu != ' '</code> trước khi đếm.</li></ul>",
-"starter": "chuoi = input(\"Nhập một chuỗi: \")\n\n# Viết code của bạn ở đây\n",
-"stdin": "lap trinh python that thu vi",
-"explanation": "<p><code>dem.get(ky_tu, 0)</code> trả về giá trị đang có, hoặc 0 nếu ký tự chưa từng xuất hiện. Nhờ vậy ta không cần viết <code>if ky_tu in dem</code> riêng ở mỗi bước.</p><pre>chuoi = input(\"Nhập một chuỗi: \")\n\ndem = {}\nfor ky_tu in chuoi:\n    if ky_tu != \" \":\n        dem[ky_tu] = dem.get(ky_tu, 0) + 1\n\nfor ky_tu in sorted(dem):\n    print(ky_tu, \":\", dem[ky_tu])</pre><p><code>sorted(dem)</code> sắp xếp các <em>khóa</em> của dictionary theo thứ tự bảng chữ cái, giúp kết quả in ra dễ đọc hơn thứ tự ngẫu nhiên ban đầu.</p>"
+"prompt": "<p class=\"prompt\">Enter a string, then count and print how many times each character appears in it (not counting spaces), using a dictionary.</p><p class=\"prompt expect\"><span class=\"expect-tag\">Expected output</span>A list of each character with its count, for example: 'a: 3, b: 1, ...'.</p>",
+"hint": "<strong>Hint</strong><ul class=\"hint-list\"><li>Start with an empty <code>dict</code>, go through each character and increase its count.</li><li>You can use <code>counts.get(char, 0) + 1</code> to read and update the count in one step.</li><li>Skip spaces by checking <code>if char != ' '</code> before counting.</li></ul>",
+"starter": "text = input(\"Enter a string: \")\n\n# Write your code below\n",
+"stdin": "learning python is fun",
+"explanation": "<p><code>counts.get(char, 0)</code> returns the current value, or 0 if the character has not appeared yet. This saves us from writing a separate <code>if char in counts</code> at every step.</p><pre>text = input(\"Enter a string: \")\n\ncounts = {}\nfor char in text:\n    if char != \" \":\n        counts[char] = counts.get(char, 0) + 1\n\nfor char in sorted(counts):\n    print(char, \":\", counts[char])</pre><p><code>sorted(counts)</code> sorts the dictionary's <em>keys</em> in alphabetical order, making the output easier to read than the order in which the characters first appeared.</p>"
 },
 {
-"title": "Vẽ đồng hồ cát",
-"goal": "Turtle · định vị bằng goto",
-"level": "Trung bình",
+"title": "Draw an hourglass",
+"goal": "Turtle · positioning with goto",
+"level": "Medium",
 "kind": "turtle",
 "disp": "30",
-"prompt": "<p class=\"prompt\">Dùng Turtle vẽ một đồng hồ cát: hai hình tam giác chụm đỉnh vào nhau (một tam giác hướng lên, một tam giác hướng xuống).</p><p class=\"prompt expect\"><span class=\"expect-tag\">Kết quả mong đợi</span>Một hình đồng hồ cát gồm hai tam giác đối xứng chụm đỉnh.</p>",
-"hint": "<strong>Gợi ý</strong><ul class=\"hint-list\"><li>Vẽ tam giác thứ nhất bình thường, sau đó nhấc bút di chuyển đến đúng đỉnh chung.</li><li>Xoay hướng turtle 180 độ trước khi vẽ tam giác thứ hai để nó lộn ngược lại.</li><li>Có thể tô màu vàng nhạt bên trong để trông giống cát.</li></ul>",
-"starter": "import turtle\n\nt = turtle.Turtle()\n\n# Viết code của bạn ở đây\n",
+"prompt": "<p class=\"prompt\">Use Turtle to draw an hourglass: two triangles whose apexes meet (one triangle pointing up, one pointing down).</p><p class=\"prompt expect\"><span class=\"expect-tag\">Expected output</span>An hourglass made of two symmetric triangles meeting at their apexes.</p>",
+"hint": "<strong>Hint</strong><ul class=\"hint-list\"><li>Draw the first triangle normally, then lift the pen and move to the shared apex.</li><li>Turn the turtle 180 degrees before drawing the second triangle so it is flipped upside down.</li><li>You can fill it with pale yellow to make it look like sand.</li></ul>",
+"starter": "import turtle\n\nt = turtle.Turtle()\n\n# Write your code below\n",
 "stdin": "",
-"explanation": "<p>Cách chắc chắn nhất là chỉ ra thẳng toạ độ ba đỉnh của mỗi tam giác. Hai tam giác dùng chung đúng một điểm — gốc toạ độ (0, 0) — nên chúng chụm đỉnh vào nhau.</p><pre>import turtle\n\nt = turtle.Turtle()\nt.speed(0)\nt.pensize(3)\nt.pencolor(\"saddlebrown\")\nt.fillcolor(\"khaki\")\n\ndef ve_tam_giac(dinh):\n    t.penup()\n    t.goto(dinh[0])\n    t.pendown()\n    t.begin_fill()\n    for diem in dinh[1:]:\n        t.goto(diem)\n    t.goto(dinh[0])\n    t.end_fill()\n\n# Tam giác trên: đáy ở trên, đỉnh chụm tại gốc\nve_tam_giac([(-100, 120), (100, 120), (0, 0)])\n\n# Tam giác dưới: đỉnh chụm tại gốc, đáy ở dưới\nve_tam_giac([(0, 0), (100, -120), (-100, -120)])\n\nt.hideturtle()\nturtle.done()</pre><p>Khi hình có toạ độ rõ ràng, dùng <code>goto()</code> thường dễ hơn nhiều so với việc tính từng góc quay — nhất là với các hình không đều.</p>"
+"explanation": "<p>The surest way is to state the coordinates of the three vertices of each triangle directly. The two triangles share exactly one point — the origin (0, 0) — so their apexes meet.</p><pre>import turtle\n\nt = turtle.Turtle()\nt.speed(0)\nt.pensize(3)\nt.pencolor(\"saddlebrown\")\nt.fillcolor(\"khaki\")\n\ndef draw_triangle(vertices):\n    t.penup()\n    t.goto(vertices[0])\n    t.pendown()\n    t.begin_fill()\n    for point in vertices[1:]:\n        t.goto(point)\n    t.goto(vertices[0])\n    t.end_fill()\n\n# Top triangle: base at the top, apex meeting at the origin\ndraw_triangle([(-100, 120), (100, 120), (0, 0)])\n\n# Bottom triangle: apex meeting at the origin, base at the bottom\ndraw_triangle([(0, 0), (100, -120), (-100, -120)])\n\nt.hideturtle()\nturtle.done()</pre><p>When a shape has clear coordinates, <code>goto()</code> is usually much easier than working out every turn angle — especially for irregular shapes.</p>"
 },
 {
-"title": "Vẽ đa giác đều với số cạnh tùy chọn",
+"title": "Draw a regular polygon with a chosen number of sides",
 "goal": "Turtle · input · 360/n",
-"level": "Trung bình",
+"level": "Medium",
 "kind": "turtle",
 "disp": "31",
-"prompt": "<p class=\"prompt\">Nhập vào số cạnh (n) và độ dài mỗi cạnh, sau đó dùng Turtle vẽ một đa giác đều n cạnh tương ứng (ví dụ n = 3 là tam giác, n = 6 là lục giác, n = 8 là bát giác...).</p><p class=\"prompt expect\"><span class=\"expect-tag\">Kết quả mong đợi</span>Một đa giác đều đúng số cạnh và độ dài người dùng nhập.</p>",
-"hint": "<strong>Gợi ý</strong><ul class=\"hint-list\"><li>Góc quay ở mỗi đỉnh của đa giác đều n cạnh là <code>360 / n</code> độ.</li><li>Dùng <code>for i in range(n): forward(do_dai); right(360/n)</code>.</li><li>Thử nghiệm với các giá trị n khác nhau để thấy đa giác thay đổi hình dạng.</li></ul>",
-"starter": "import turtle\n\nn = int(input(\"Số cạnh: \"))\ndo_dai = float(input(\"Độ dài cạnh: \"))\n\nt = turtle.Turtle()\n\n# Viết code của bạn ở đây\n",
+"prompt": "<p class=\"prompt\">Enter the number of sides (n) and the length of each side, then use Turtle to draw a regular polygon with n sides (for example n = 3 is a triangle, n = 6 is a hexagon, n = 8 is an octagon...).</p><p class=\"prompt expect\"><span class=\"expect-tag\">Expected output</span>A regular polygon with exactly the number of sides and side length the user entered.</p>",
+"hint": "<strong>Hint</strong><ul class=\"hint-list\"><li>The turn angle at each corner of a regular n-sided polygon is <code>360 / n</code> degrees.</li><li>Use <code>for i in range(n): forward(length); right(360/n)</code>.</li><li>Experiment with different values of n to see the polygon change shape.</li></ul>",
+"starter": "import turtle\n\nn = int(input(\"Number of sides: \"))\nlength = float(input(\"Side length: \"))\n\nt = turtle.Turtle()\n\n# Write your code below\n",
 "stdin": "8\n70",
-"explanation": "<p>Đây là bản tổng quát của các bài vẽ tam giác, hình vuông và lục giác trước đó. Chỉ cần thay số cụ thể bằng biến <code>n</code>, một đoạn code vẽ được mọi đa giác đều.</p><pre>import turtle\n\nn = int(input(\"Số cạnh: \"))\ndo_dai = float(input(\"Độ dài cạnh: \"))\n\nt = turtle.Turtle()\nt.pensize(3)\nt.pencolor(\"teal\")\n\nif n &lt; 3:\n    print(\"Đa giác phải có ít nhất 3 cạnh!\")\nelse:\n    for i in range(n):\n        t.forward(do_dai)\n        t.right(360 / n)\n\nturtle.done()</pre><p>Khi n càng lớn, góc quay càng nhỏ và đa giác càng tròn. Với n = 60 trở lên, mắt thường gần như không phân biệt được với một hình tròn thật.</p>"
+"explanation": "<p>This is the generalized version of the earlier triangle, square and hexagon exercises. Just replace the specific number with the variable <code>n</code> and one piece of code can draw any regular polygon.</p><pre>import turtle\n\nn = int(input(\"Number of sides: \"))\nlength = float(input(\"Side length: \"))\n\nt = turtle.Turtle()\nt.pensize(3)\nt.pencolor(\"teal\")\n\nif n &lt; 3:\n    print(\"A polygon must have at least 3 sides!\")\nelse:\n    for i in range(n):\n        t.forward(length)\n        t.right(360 / n)\n\nturtle.done()</pre><p>The larger n gets, the smaller the turn angle and the rounder the polygon. From n = 60 upward, the naked eye can hardly tell it apart from a real circle.</p>"
 },
 {
-"title": "Đảo ngược chuỗi không dùng hàm có sẵn",
-"goal": "Vòng lặp ngược · nối chuỗi",
-"level": "Trung bình",
+"title": "Reverse a string without a built-in function",
+"goal": "Reverse loop · string concatenation",
+"level": "Medium",
 "kind": "python",
 "disp": "32",
-"prompt": "<p class=\"prompt\">Nhập vào một chuỗi và đảo ngược chuỗi đó mà không được dùng cú pháp <code>chuoi[::-1]</code> hoặc hàm <code>reversed()</code> có sẵn. Phải tự viết vòng lặp để thực hiện.</p><p class=\"prompt expect\"><span class=\"expect-tag\">Kết quả mong đợi</span>In ra chuỗi đã được đảo ngược thứ tự ký tự.</p>",
-"hint": "<strong>Gợi ý</strong><ul class=\"hint-list\"><li>Tạo một chuỗi rỗng mới, duyệt chuỗi gốc từ ký tự cuối về ký tự đầu và nối dần vào chuỗi mới.</li><li>Có thể dùng <code>range(len(chuoi)-1, -1, -1)</code>.</li><li>Kiểm tra lại kết quả bằng cách so sánh với <code>chuoi[::-1]</code> (chỉ để kiểm tra).</li></ul>",
-"starter": "chuoi = input(\"Nhập một chuỗi: \")\n\n# Viết code của bạn ở đây\n",
+"prompt": "<p class=\"prompt\">Enter a string and reverse it without using the <code>text[::-1]</code> syntax or the built-in <code>reversed()</code> function. You must write the loop yourself.</p><p class=\"prompt expect\"><span class=\"expect-tag\">Expected output</span>Print the string with its characters in reverse order.</p>",
+"hint": "<strong>Hint</strong><ul class=\"hint-list\"><li>Create a new empty string, walk through the original from the last character to the first, and append each one to the new string.</li><li>You can use <code>range(len(text)-1, -1, -1)</code>.</li><li>Double-check the result by comparing it with <code>text[::-1]</code> (for checking only).</li></ul>",
+"starter": "text = input(\"Enter a string: \")\n\n# Write your code below\n",
 "stdin": "Python",
-"explanation": "<p><code>range(len(chuoi)-1, -1, -1)</code> đọc là: bắt đầu từ chỉ số cuối, dừng <em>trước</em> -1 (tức là dừng sau khi qua chỉ số 0), mỗi bước lùi 1. Giá trị -1 ở giữa là điểm dừng, không phải chỉ số được duyệt.</p><pre>chuoi = input(\"Nhập một chuỗi: \")\n\ndao_nguoc = \"\"\nfor i in range(len(chuoi) - 1, -1, -1):\n    dao_nguoc = dao_nguoc + chuoi[i]\n\nprint(\"Chuỗi gốc:     \", chuoi)\nprint(\"Chuỗi đảo ngược:\", dao_nguoc)\nprint(\"Kiểm tra:       \", chuoi[::-1])</pre><p>Một cách khác không cần chỉ số: duyệt xuôi và mỗi lần nối ký tự vào <em>đầu</em> chuỗi kết quả — <code>dao_nguoc = ky_tu + dao_nguoc</code>.</p>"
+"explanation": "<p><code>range(len(text)-1, -1, -1)</code> reads as: start at the last index, stop <em>before</em> -1 (that is, stop after passing index 0), stepping back by 1. The -1 in the middle is the stopping point, not an index that gets visited.</p><pre>text = input(\"Enter a string: \")\n\nreversed_text = \"\"\nfor i in range(len(text) - 1, -1, -1):\n    reversed_text = reversed_text + text[i]\n\nprint(\"Original:\", text)\nprint(\"Reversed:\", reversed_text)\nprint(\"Check:   \", text[::-1])</pre><p>Another way that needs no indexes: loop forwards and each time attach the character to the <em>front</em> of the result string — <code>reversed_text = char + reversed_text</code>.</p>"
 },
 {
-"title": "Vẽ nhiều vòng tròn đồng tâm cầu vồng",
-"goal": "Turtle · danh sách màu · circle()",
-"level": "Trung bình",
+"title": "Draw concentric rainbow circles",
+"goal": "Turtle · color list · circle()",
+"level": "Medium",
 "kind": "turtle",
 "disp": "33",
-"prompt": "<p class=\"prompt\">Vẽ nhiều vòng tròn đồng tâm (cùng tâm, bán kính tăng dần), mỗi vòng tròn có một màu khác nhau theo thứ tự cầu vồng (đỏ, cam, vàng, lục, lam, chàm, tím).</p><p class=\"prompt expect\"><span class=\"expect-tag\">Kết quả mong đợi</span>Nhiều vòng tròn đồng tâm với 7 màu cầu vồng, to dần ra ngoài.</p>",
-"hint": "<strong>Gợi ý</strong><ul class=\"hint-list\"><li>Dùng <code>t.circle(ban_kinh)</code>, tăng dần <code>ban_kinh</code> sau mỗi lần vẽ.</li><li>Lưu danh sách 7 màu cầu vồng và lặp qua danh sách bằng chỉ số <code>i % 7</code>.</li><li>Nhớ căn giữa các vòng tròn bằng cách di chuyển turtle xuống dưới trước khi vẽ.</li></ul>",
-"starter": "import turtle\n\nt = turtle.Turtle()\n\n# Viết code của bạn ở đây\n",
+"prompt": "<p class=\"prompt\">Draw several concentric circles (same center, increasing radius), each circle a different color in rainbow order (red, orange, yellow, green, blue, indigo, violet).</p><p class=\"prompt expect\"><span class=\"expect-tag\">Expected output</span>Several concentric circles in the 7 rainbow colors, growing larger outward.</p>",
+"hint": "<strong>Hint</strong><ul class=\"hint-list\"><li>Use <code>t.circle(radius)</code>, increasing <code>radius</code> after each drawing.</li><li>Store a list of the 7 rainbow colors and loop through it using the index <code>i % 7</code>.</li><li>Remember to center the circles by moving the turtle downward before drawing.</li></ul>",
+"starter": "import turtle\n\nt = turtle.Turtle()\n\n# Write your code below\n",
 "stdin": "",
-"explanation": "<p><code>circle(r)</code> vẽ vòng tròn <em>phía trên bên trái</em> vị trí hiện tại, tức là con rùa nằm ở đáy vòng tròn. Muốn các vòng cùng tâm, mỗi lần phải lùi xuống đúng bằng bán kính mới.</p><pre>import turtle\n\nt = turtle.Turtle()\nt.speed(0)\nt.pensize(4)\n\nmau = [\"red\", \"orange\", \"gold\", \"green\", \"blue\", \"indigo\", \"violet\"]\n\nfor i in range(7):\n    ban_kinh = 25 * (i + 1)\n    t.penup()\n    t.goto(0, -ban_kinh)\n    t.setheading(0)\n    t.pendown()\n    t.pencolor(mau[i % 7])\n    t.circle(ban_kinh)\n\nt.hideturtle()\nturtle.done()</pre><p>Nếu bỏ dòng <code>goto(0, -ban_kinh)</code>, các vòng tròn sẽ tiếp xúc nhau tại một điểm thay vì lồng vào nhau — cũng là một hoa văn thú vị để thử.</p>"
+"explanation": "<p><code>circle(r)</code> draws the circle <em>above and to the left of</em> the current position, meaning the turtle sits at the bottom of the circle. To make the circles concentric, each time you must step down by exactly the new radius.</p><pre>import turtle\n\nt = turtle.Turtle()\nt.speed(0)\nt.pensize(4)\n\ncolors = [\"red\", \"orange\", \"gold\", \"green\", \"blue\", \"indigo\", \"violet\"]\n\nfor i in range(7):\n    radius = 25 * (i + 1)\n    t.penup()\n    t.goto(0, -radius)\n    t.setheading(0)\n    t.pendown()\n    t.pencolor(colors[i % 7])\n    t.circle(radius)\n\nt.hideturtle()\nturtle.done()</pre><p>If you remove the line <code>goto(0, -radius)</code>, the circles will touch at a single point instead of nesting inside each other — also an interesting pattern to try.</p>"
 },
 {
-"title": "Tính ước chung lớn nhất (GCD) và bội chung nhỏ nhất (LCM)",
-"goal": "Thuật toán Euclid · vòng lặp while",
-"level": "Trung bình",
+"title": "Calculate the greatest common divisor (GCD) and least common multiple (LCM)",
+"goal": "Euclid's algorithm · while loop",
+"level": "Medium",
 "kind": "python",
 "disp": "34",
-"prompt": "<p class=\"prompt\">Nhập vào hai số nguyên dương a và b, tính ước chung lớn nhất (GCD) bằng thuật toán Euclid, sau đó tính bội chung nhỏ nhất theo công thức <code>LCM(a, b) = (a * b) / GCD(a, b)</code>.</p><p class=\"prompt expect\"><span class=\"expect-tag\">Kết quả mong đợi</span>In ra giá trị GCD và LCM của hai số đã nhập.</p>",
-"hint": "<strong>Gợi ý</strong><ul class=\"hint-list\"><li>Thuật toán Euclid: <code>gcd(a, b) = gcd(b, a % b)</code>, dừng khi <code>b == 0</code>.</li><li>Có thể cài đặt bằng vòng lặp <code>while</code> hoặc bằng đệ quy.</li><li>So sánh với <code>math.gcd()</code> có sẵn trong Python để kiểm tra.</li></ul>",
-"starter": "a = int(input(\"Số a: \"))\nb = int(input(\"Số b: \"))\n\n# Viết code của bạn ở đây\n",
+"prompt": "<p class=\"prompt\">Enter two positive integers a and b, calculate their greatest common divisor (GCD) using Euclid's algorithm, then calculate the least common multiple with the formula <code>LCM(a, b) = (a * b) / GCD(a, b)</code>.</p><p class=\"prompt expect\"><span class=\"expect-tag\">Expected output</span>Print the GCD and LCM of the two numbers entered.</p>",
+"hint": "<strong>Hint</strong><ul class=\"hint-list\"><li>Euclid's algorithm: <code>gcd(a, b) = gcd(b, a % b)</code>, stopping when <code>b == 0</code>.</li><li>You can implement it with a <code>while</code> loop or with recursion.</li><li>Compare with the built-in <code>math.gcd()</code> in Python to check.</li></ul>",
+"starter": "a = int(input(\"Number a: \"))\nb = int(input(\"Number b: \"))\n\n# Write your code below\n",
 "stdin": "48\n18",
-"explanation": "<p>Thuật toán Euclid dựa trên nhận xét: ước chung của a và b cũng chính là ước chung của b và phần dư <code>a % b</code>. Lặp lại cho tới khi phần dư bằng 0, số còn lại chính là GCD.</p><pre>import math\n\na = int(input(\"Số a: \"))\nb = int(input(\"Số b: \"))\n\nx, y = a, b\nwhile y != 0:\n    x, y = y, x % y\n\ngcd = x\nlcm = a * b // gcd\n\nprint(\"GCD:\", gcd)\nprint(\"LCM:\", lcm)\nprint(\"Kiểm tra GCD:\", math.gcd(a, b))</pre><p>Dùng <code>//</code> cho LCM để kết quả là số nguyên. Vì <code>a * b</code> luôn chia hết cho GCD nên phép chia này không bao giờ mất mát gì.</p>"
+"explanation": "<p>Euclid's algorithm rests on this observation: a common divisor of a and b is also a common divisor of b and the remainder <code>a % b</code>. Repeat until the remainder is 0; the number left over is the GCD.</p><pre>import math\n\na = int(input(\"Number a: \"))\nb = int(input(\"Number b: \"))\n\nx, y = a, b\nwhile y != 0:\n    x, y = y, x % y\n\ngcd = x\nlcm = a * b // gcd\n\nprint(\"GCD:\", gcd)\nprint(\"LCM:\", lcm)\nprint(\"Check GCD:\", math.gcd(a, b))</pre><p>Use <code>//</code> for the LCM so the result is an integer. Since <code>a * b</code> is always divisible by the GCD, this division never loses anything.</p>"
 },
 {
-"title": "Vẽ ngôi nhà đơn giản",
-"goal": "Turtle · ghép nhiều hình",
-"level": "Trung bình",
+"title": "Draw a simple house",
+"goal": "Turtle · combining several shapes",
+"level": "Medium",
 "kind": "turtle",
 "disp": "35",
-"prompt": "<p class=\"prompt\">Dùng Turtle vẽ một ngôi nhà đơn giản: thân nhà là một hình vuông, mái nhà là một hình tam giác phía trên. Có thể vẽ thêm một hình chữ nhật nhỏ làm cửa ra vào.</p><p class=\"prompt expect\"><span class=\"expect-tag\">Kết quả mong đợi</span>Một ngôi nhà gồm thân vuông, mái tam giác và cửa.</p>",
-"hint": "<strong>Gợi ý</strong><ul class=\"hint-list\"><li>Vẽ hình vuông trước bằng vòng lặp <code>for i in range(4)</code>.</li><li>Nhấc bút lên (<code>penup</code>), di chuyển đến đúng vị trí đỉnh hình vuông rồi vẽ tam giác làm mái.</li><li>Có thể tô màu khác nhau cho thân nhà, mái nhà và cửa.</li></ul>",
-"starter": "import turtle\n\nt = turtle.Turtle()\n\n# Viết code của bạn ở đây\n",
+"prompt": "<p class=\"prompt\">Use Turtle to draw a simple house: the body is a square, and the roof is a triangle on top. You can also draw a small rectangle for the front door.</p><p class=\"prompt expect\"><span class=\"expect-tag\">Expected output</span>A house with a square body, a triangular roof and a door.</p>",
+"hint": "<strong>Hint</strong><ul class=\"hint-list\"><li>Draw the square first with a <code>for i in range(4)</code> loop.</li><li>Lift the pen (<code>penup</code>), move to the exact top corner of the square, then draw the triangle for the roof.</li><li>You can use different colors for the body, the roof and the door.</li></ul>",
+"starter": "import turtle\n\nt = turtle.Turtle()\n\n# Write your code below\n",
 "stdin": "",
-"explanation": "<p>Bí quyết là vẽ theo thứ tự từ dưới lên: thân nhà trước, rồi mái, rồi cửa. Sau mỗi phần, đặt lại vị trí và hướng bằng <code>goto</code> + <code>setheading</code> để phần tiếp theo không bị lệch.</p><pre>import turtle\n\nt = turtle.Turtle()\nt.speed(0)\nt.pensize(3)\n\ncanh = 160\n\n# Thân nhà\nt.penup()\nt.goto(-canh / 2, -canh / 2)\nt.setheading(0)\nt.pendown()\nt.fillcolor(\"wheat\")\nt.begin_fill()\nfor i in range(4):\n    t.forward(canh)\n    t.left(90)\nt.end_fill()\n\n# Mái nhà\nt.penup()\nt.goto(-canh / 2, canh / 2)\nt.setheading(0)\nt.pendown()\nt.fillcolor(\"firebrick\")\nt.begin_fill()\nfor i in range(3):\n    t.forward(canh)\n    t.left(120)\nt.end_fill()\n\n# Cửa ra vào\nt.penup()\nt.goto(-25, -canh / 2)\nt.setheading(0)\nt.pendown()\nt.fillcolor(\"saddlebrown\")\nt.begin_fill()\nfor i in range(2):\n    t.forward(50)\n    t.left(90)\n    t.forward(75)\n    t.left(90)\nt.end_fill()\n\nt.hideturtle()\nturtle.done()</pre><p>Mái nhà là tam giác đều có cạnh bằng đúng cạnh thân nhà, nên nó nằm vừa khít lên trên. Thử đổi <code>left(120)</code> thành các góc khác để có mái dốc hơn.</p>"
+"explanation": "<p>The secret is to draw from the bottom up: the body first, then the roof, then the door. After each part, reset the position and heading with <code>goto</code> + <code>setheading</code> so the next part doesn't end up off-center.</p><pre>import turtle\n\nt = turtle.Turtle()\nt.speed(0)\nt.pensize(3)\n\nside = 160\n\n# House body\nt.penup()\nt.goto(-side / 2, -side / 2)\nt.setheading(0)\nt.pendown()\nt.fillcolor(\"wheat\")\nt.begin_fill()\nfor i in range(4):\n    t.forward(side)\n    t.left(90)\nt.end_fill()\n\n# Roof\nt.penup()\nt.goto(-side / 2, side / 2)\nt.setheading(0)\nt.pendown()\nt.fillcolor(\"firebrick\")\nt.begin_fill()\nfor i in range(3):\n    t.forward(side)\n    t.left(120)\nt.end_fill()\n\n# Door\nt.penup()\nt.goto(-25, -side / 2)\nt.setheading(0)\nt.pendown()\nt.fillcolor(\"saddlebrown\")\nt.begin_fill()\nfor i in range(2):\n    t.forward(50)\n    t.left(90)\n    t.forward(75)\n    t.left(90)\nt.end_fill()\n\nt.hideturtle()\nturtle.done()</pre><p>The roof is an equilateral triangle whose side is exactly the side of the house body, so it fits snugly on top. Try changing <code>left(120)</code> to other angles to get a steeper roof.</p>"
 },
 {
-"title": "Kiểm tra chuỗi đối xứng (Palindrome)",
-"goal": "Chuẩn hóa chuỗi · so sánh",
-"level": "Trung bình",
+"title": "Check for a palindrome",
+"goal": "Normalizing text · comparison",
+"level": "Medium",
 "kind": "python",
 "disp": "36",
-"prompt": "<p class=\"prompt\">Nhập vào một chuỗi ký tự (hoặc câu) và kiểm tra xem chuỗi đó có phải là chuỗi đối xứng (palindrome) hay không, tức là đọc xuôi và đọc ngược giống nhau (bỏ qua khoảng trắng và không phân biệt hoa/thường).</p><p class=\"prompt expect\"><span class=\"expect-tag\">Kết quả mong đợi</span>In ra 'là palindrome' hoặc 'không phải palindrome'.</p>",
-"hint": "<strong>Gợi ý</strong><ul class=\"hint-list\"><li>Dùng <code>chuoi.replace(' ', '').lower()</code> để chuẩn hóa chuỗi trước khi so sánh.</li><li>So sánh chuỗi với <code>chuoi[::-1]</code> (chuỗi đảo ngược).</li><li>Thử với ví dụ: 'Do noi soi do'.</li></ul>",
-"starter": "chuoi = input(\"Nhập chuỗi: \")\n\n# Viết code của bạn ở đây\n",
-"stdin": "Do noi soi do",
-"explanation": "<p>Bước chuẩn hóa quyết định kết quả. Nếu không bỏ khoảng trắng và không hạ chữ thường, 'Do noi soi do' sẽ bị coi là <em>không</em> đối xứng vì chữ 'D' hoa khác chữ 'd' thường.</p><pre>chuoi = input(\"Nhập chuỗi: \")\n\nchuan = chuoi.replace(\" \", \"\").lower()\n\nif chuan == chuan[::-1]:\n    print(repr(chuoi), \"là palindrome\")\nelse:\n    print(repr(chuoi), \"không phải palindrome\")</pre><p>Muốn bỏ qua cả dấu câu, hãy giữ lại chỉ các ký tự chữ và số: <code>\"\".join(c for c in chuoi.lower() if c.isalnum())</code>.</p>"
+"prompt": "<p class=\"prompt\">Enter a string of characters (or a sentence) and check whether it is a palindrome, meaning it reads the same forwards and backwards (ignoring spaces and letter case).</p><p class=\"prompt expect\"><span class=\"expect-tag\">Expected output</span>Print 'is a palindrome' or 'is not a palindrome'.</p>",
+"hint": "<strong>Hint</strong><ul class=\"hint-list\"><li>Use <code>text.replace(' ', '').lower()</code> to normalize the string before comparing.</li><li>Compare the string with <code>text[::-1]</code> (the reversed string).</li><li>Try it with the example: 'A man a plan a canal Panama'.</li></ul>",
+"starter": "text = input(\"Enter a string: \")\n\n# Write your code below\n",
+"stdin": "A man a plan a canal Panama",
+"explanation": "<p>The normalizing step decides the result. If you don't remove the spaces and lowercase the letters, 'A man a plan a canal Panama' will be judged <em>not</em> symmetric because the capital 'A' differs from the lowercase 'a'.</p><pre>text = input(\"Enter a string: \")\n\ncleaned = text.replace(\" \", \"\").lower()\n\nif cleaned == cleaned[::-1]:\n    print(repr(text), \"is a palindrome\")\nelse:\n    print(repr(text), \"is not a palindrome\")</pre><p>To ignore punctuation as well, keep only the letters and digits: <code>\"\".join(c for c in text.lower() if c.isalnum())</code>.</p>"
 },
 {
-"title": "Tính giai thừa bằng vòng lặp và đệ quy",
-"goal": "Đệ quy · so sánh hai cách làm",
-"level": "Trung bình",
+"title": "Calculate a factorial with a loop and with recursion",
+"goal": "Recursion · comparing two approaches",
+"level": "Medium",
 "kind": "python",
 "disp": "37",
-"prompt": "<p class=\"prompt\">Nhập vào số nguyên n và tính n giai thừa (n!) theo hai cách: dùng vòng lặp <code>for</code>/<code>while</code>, và dùng hàm đệ quy. So sánh kết quả của hai cách để kiểm tra tính đúng đắn.</p><p class=\"prompt expect\"><span class=\"expect-tag\">Kết quả mong đợi</span>Giá trị n! được in ra từ cả hai cách tính, hai kết quả phải trùng nhau.</p>",
-"hint": "<strong>Gợi ý</strong><ul class=\"hint-list\"><li>Giai thừa: <code>n! = n * (n-1) * ... * 1</code>, với <code>0! = 1</code>.</li><li>Hàm đệ quy: <code>giai_thua(n) = n * giai_thua(n-1)</code>, với <code>giai_thua(0) = 1</code>.</li><li>Kiểm tra trường hợp người dùng nhập số âm và in ra thông báo lỗi phù hợp.</li></ul>",
-"starter": "n = int(input(\"Nhập n: \"))\n\n# Viết code của bạn ở đây\n",
+"prompt": "<p class=\"prompt\">Enter an integer n and calculate n factorial (n!) in two ways: using a <code>for</code>/<code>while</code> loop, and using a recursive function. Compare the two results to check they are correct.</p><p class=\"prompt expect\"><span class=\"expect-tag\">Expected output</span>The value of n! printed from both methods; the two results must match.</p>",
+"hint": "<strong>Hint</strong><ul class=\"hint-list\"><li>Factorial: <code>n! = n * (n-1) * ... * 1</code>, with <code>0! = 1</code>.</li><li>Recursive function: <code>factorial(n) = n * factorial(n-1)</code>, with <code>factorial(0) = 1</code>.</li><li>Handle the case where the user enters a negative number and print a suitable error message.</li></ul>",
+"starter": "n = int(input(\"Enter n: \"))\n\n# Write your code below\n",
 "stdin": "10",
-"explanation": "<p>Mọi hàm đệ quy cần hai phần: <em>trường hợp cơ sở</em> để dừng lại (<code>n == 0</code>), và <em>trường hợp đệ quy</em> gọi lại chính nó với bài toán nhỏ hơn. Thiếu trường hợp cơ sở, hàm sẽ gọi mãi không dừng.</p><pre>n = int(input(\"Nhập n: \"))\n\ndef giai_thua_lap(n):\n    ket_qua = 1\n    for i in range(1, n + 1):\n        ket_qua *= i\n    return ket_qua\n\ndef giai_thua_de_quy(n):\n    if n == 0:\n        return 1\n    return n * giai_thua_de_quy(n - 1)\n\nif n &lt; 0:\n    print(\"Giai thừa không xác định với số âm!\")\nelse:\n    a = giai_thua_lap(n)\n    b = giai_thua_de_quy(n)\n    print(\"Vòng lặp:\", a)\n    print(\"Đệ quy:  \", b)\n    print(\"Trùng khớp:\", a == b)</pre><p>Python không giới hạn độ lớn của số nguyên, nên <code>100!</code> vẫn tính được chính xác tới từng chữ số — nhưng bản đệ quy sẽ báo lỗi vượt quá độ sâu đệ quy khi n lớn khoảng 1000.</p>"
+"explanation": "<p>Every recursive function needs two parts: a <em>base case</em> that stops it (<code>n == 0</code>), and a <em>recursive case</em> that calls itself with a smaller problem. Without a base case, the function would call itself forever.</p><pre>n = int(input(\"Enter n: \"))\n\ndef factorial_loop(n):\n    result = 1\n    for i in range(1, n + 1):\n        result *= i\n    return result\n\ndef factorial_recursive(n):\n    if n == 0:\n        return 1\n    return n * factorial_recursive(n - 1)\n\nif n &lt; 0:\n    print(\"Factorial is not defined for negative numbers!\")\nelse:\n    a = factorial_loop(n)\n    b = factorial_recursive(n)\n    print(\"Loop:     \", a)\n    print(\"Recursion:\", b)\n    print(\"Match:\", a == b)</pre><p>Python puts no limit on the size of integers, so <code>100!</code> can still be computed exactly, digit for digit — but the recursive version will raise a recursion-depth error once n reaches about 1000.</p>"
 },
 {
-"title": "Kiểm tra số nguyên tố",
-"goal": "Vòng lặp · break · tối ưu căn bậc hai",
-"level": "Trung bình",
+"title": "Check whether a number is prime",
+"goal": "Loops · break · square-root optimization",
+"level": "Medium",
 "kind": "python",
 "disp": "38",
-"prompt": "<p class=\"prompt\">Nhập vào một số nguyên dương n, kiểm tra xem n có phải là số nguyên tố hay không và in ra kết quả. Sau đó mở rộng: in ra tất cả các số nguyên tố nhỏ hơn hoặc bằng n.</p><p class=\"prompt expect\"><span class=\"expect-tag\">Kết quả mong đợi</span>In ra kết luận về n, kèm danh sách số nguyên tố nếu mở rộng.</p>",
-"hint": "<strong>Gợi ý</strong><ul class=\"hint-list\"><li>Số nguyên tố chỉ chia hết cho 1 và chính nó, và phải lớn hơn 1.</li><li>Chỉ cần kiểm tra các ước từ 2 đến căn bậc hai của n để tăng tốc độ.</li><li>Dùng vòng lặp <code>for</code> kết hợp <code>break</code> khi tìm được một ước số.</li></ul>",
-"starter": "n = int(input(\"Nhập n: \"))\n\n# Viết code của bạn ở đây\n",
+"prompt": "<p class=\"prompt\">Enter a positive integer n, check whether n is prime and print the result. Then extend it: print all the prime numbers less than or equal to n.</p><p class=\"prompt expect\"><span class=\"expect-tag\">Expected output</span>Print the verdict for n, plus the list of primes if you do the extension.</p>",
+"hint": "<strong>Hint</strong><ul class=\"hint-list\"><li>A prime number is divisible only by 1 and itself, and must be greater than 1.</li><li>To speed things up, you only need to check divisors from 2 up to the square root of n.</li><li>Use a <code>for</code> loop together with <code>break</code> when you find a divisor.</li></ul>",
+"starter": "n = int(input(\"Enter n: \"))\n\n# Write your code below\n",
 "stdin": "50",
-"explanation": "<p>Chỉ cần kiểm tra tới căn bậc hai của n, vì nếu n có một ước lớn hơn <code>√n</code> thì nó bắt buộc phải có một ước tương ứng nhỏ hơn <code>√n</code> — và ta đã gặp ước nhỏ đó rồi.</p><pre>n = int(input(\"Nhập n: \"))\n\ndef la_nguyen_to(so):\n    if so &lt; 2:\n        return False\n    i = 2\n    while i * i &lt;= so:\n        if so % i == 0:\n            return False\n        i += 1\n    return True\n\nif la_nguyen_to(n):\n    print(n, \"là số nguyên tố\")\nelse:\n    print(n, \"không phải số nguyên tố\")\n\nnguyen_to = [x for x in range(2, n + 1) if la_nguyen_to(x)]\nprint(\"Các số nguyên tố &lt;=\", n, \":\", nguyen_to)</pre><p>Điều kiện <code>i * i &lt;= so</code> tránh phải gọi <code>math.sqrt()</code> và cũng tránh sai số của số thực — một mẹo nhỏ nhưng rất đáng nhớ.</p>"
+"explanation": "<p>You only need to check up to the square root of n, because if n has a divisor larger than <code>√n</code> it must also have a matching divisor smaller than <code>√n</code> — and we would already have met that smaller one.</p><pre>n = int(input(\"Enter n: \"))\n\ndef is_prime(number):\n    if number &lt; 2:\n        return False\n    i = 2\n    while i * i &lt;= number:\n        if number % i == 0:\n            return False\n        i += 1\n    return True\n\nif is_prime(n):\n    print(n, \"is a prime number\")\nelse:\n    print(n, \"is not a prime number\")\n\nprimes = [x for x in range(2, n + 1) if is_prime(x)]\nprint(\"Prime numbers &lt;=\", n, \":\", primes)</pre><p>The condition <code>i * i &lt;= number</code> avoids calling <code>math.sqrt()</code> and also avoids floating-point error — a small trick, but well worth remembering.</p>"
 },
 {
-"title": "Vẽ hình xoắn ốc vuông nhiều màu",
-"goal": "Turtle · biến thay đổi trong vòng lặp",
-"level": "Trung bình",
+"title": "Draw a multicolored square spiral",
+"goal": "Turtle · variables that change inside a loop",
+"level": "Medium",
 "kind": "turtle",
 "disp": "39",
-"prompt": "<p class=\"prompt\">Vẽ một hình xoắn ốc vuông: mỗi lần vẽ xong một đoạn thẳng thì rẽ 90 độ và tăng dần độ dài đoạn tiếp theo. Đổi màu bút sau mỗi vài đoạn để tạo hiệu ứng nhiều màu.</p><p class=\"prompt expect\"><span class=\"expect-tag\">Kết quả mong đợi</span>Một hình xoắn ốc vuông nhiều màu, nở dần ra từ tâm.</p>",
-"hint": "<strong>Gợi ý</strong><ul class=\"hint-list\"><li>Dùng <code>for i in range(so_vong): forward(do_dai); right(90); do_dai += buoc_tang</code>.</li><li>Lưu một danh sách màu và dùng <code>t.pencolor(mau[i % len(mau)])</code>.</li><li>Thử thay đổi <code>buoc_tang</code> để xem hình xoắn ốc nở ra nhanh hay chậm.</li></ul>",
-"starter": "import turtle\n\nt = turtle.Turtle()\n\n# Viết code của bạn ở đây\n",
+"prompt": "<p class=\"prompt\">Draw a square spiral: after each straight segment, turn 90 degrees and gradually increase the length of the next segment. Change the pen color every few segments to create a multicolored effect.</p><p class=\"prompt expect\"><span class=\"expect-tag\">Expected output</span>A multicolored square spiral, gradually widening out from the center.</p>",
+"hint": "<strong>Hint</strong><ul class=\"hint-list\"><li>Use <code>for i in range(num_loops): forward(length); right(90); length += growth_step</code>.</li><li>Store a list of colors and use <code>t.pencolor(colors[i % len(colors)])</code>.</li><li>Try changing <code>growth_step</code> to see whether the spiral widens quickly or slowly.</li></ul>",
+"starter": "import turtle\n\nt = turtle.Turtle()\n\n# Write your code below\n",
 "stdin": "",
-"explanation": "<p>Điểm khác biệt duy nhất so với vẽ hình vuông là <code>do_dai</code> tăng lên sau mỗi cạnh. Vì các cạnh không còn bằng nhau, hình không khép kín mà xoắn dần ra ngoài.</p><pre>import turtle\n\nt = turtle.Turtle()\nt.speed(0)\nt.pensize(3)\n\nmau = [\"red\", \"orange\", \"gold\", \"green\", \"blue\", \"purple\"]\n\ndo_dai = 5\nbuoc_tang = 5\n\nfor i in range(60):\n    t.pencolor(mau[i % len(mau)])\n    t.forward(do_dai)\n    t.right(90)\n    do_dai += buoc_tang\n\nt.hideturtle()\nturtle.done()</pre><p>Đổi <code>right(90)</code> thành <code>right(91)</code> và bạn sẽ có một hình xoắn ốc xoay tròn rất đẹp — sai lệch một độ tích lũy dần qua từng vòng.</p>"
+"explanation": "<p>The only difference from drawing a square is that <code>length</code> increases after each side. Because the sides are no longer equal, the shape doesn't close but winds gradually outward.</p><pre>import turtle\n\nt = turtle.Turtle()\nt.speed(0)\nt.pensize(3)\n\ncolors = [\"red\", \"orange\", \"gold\", \"green\", \"blue\", \"purple\"]\n\nlength = 5\ngrowth_step = 5\n\nfor i in range(60):\n    t.pencolor(colors[i % len(colors)])\n    t.forward(length)\n    t.right(90)\n    length += growth_step\n\nt.hideturtle()\nturtle.done()</pre><p>Change <code>right(90)</code> to <code>right(91)</code> and you get a lovely rotating spiral — a one-degree error accumulates gradually with every turn.</p>"
 },
 {
-"title": "Vẽ ngôi sao 5 cánh",
-"goal": "Turtle · góc 144 · tô màu",
-"level": "Trung bình",
+"title": "Draw a 5-pointed star",
+"goal": "Turtle · 144° angle · fill color",
+"level": "Medium",
 "kind": "turtle",
 "disp": "40",
-"prompt": "<p class=\"prompt\">Dùng Turtle vẽ một ngôi sao 5 cánh hoàn chỉnh (chỉ với các lệnh <code>forward</code> và một góc quay cố định, không cần đệ quy). Tô màu vàng bên trong ngôi sao.</p><p class=\"prompt expect\"><span class=\"expect-tag\">Kết quả mong đợi</span>Một ngôi sao 5 cánh màu vàng.</p>",
-"hint": "<strong>Gợi ý</strong><ul class=\"hint-list\"><li>Góc quay giữa mỗi cạnh của ngôi sao 5 cánh là 144 độ.</li><li>Dùng <code>t.begin_fill()</code> trước khi vẽ và <code>t.end_fill()</code> sau khi vẽ xong.</li><li>Lặp <code>for i in range(5)</code> để vẽ đủ 5 cạnh.</li></ul>",
-"starter": "import turtle\n\nt = turtle.Turtle()\n\n# Viết code của bạn ở đây\n",
+"prompt": "<p class=\"prompt\">Use Turtle to draw a complete 5-pointed star (using only <code>forward</code> commands and one fixed turn angle, no recursion needed). Fill the inside of the star with yellow.</p><p class=\"prompt expect\"><span class=\"expect-tag\">Expected output</span>A yellow 5-pointed star.</p>",
+"hint": "<strong>Hint</strong><ul class=\"hint-list\"><li>The turn angle between the sides of a 5-pointed star is 144 degrees.</li><li>Use <code>t.begin_fill()</code> before drawing and <code>t.end_fill()</code> after you finish drawing.</li><li>Loop <code>for i in range(5)</code> to draw all 5 sides.</li></ul>",
+"starter": "import turtle\n\nt = turtle.Turtle()\n\n# Write your code below\n",
 "stdin": "",
-"explanation": "<p>Góc 144 độ đến từ chỗ con rùa đi hết <em>hai</em> vòng trọn vẹn khi vẽ ngôi sao năm cánh: <code>2 × 360 / 5 = 144</code>. Đó là lý do nét vẽ tự cắt chéo qua nhau tạo thành hình sao.</p><pre>import turtle\n\nt = turtle.Turtle()\nt.pensize(3)\nt.pencolor(\"darkorange\")\nt.fillcolor(\"gold\")\n\nt.penup()\nt.goto(-100, -60)\nt.setheading(0)\nt.pendown()\n\nt.begin_fill()\nfor i in range(5):\n    t.forward(200)\n    t.right(144)\nt.end_fill()\n\nt.hideturtle()\nturtle.done()</pre><p>Công thức tổng quát cho sao n cánh là <code>k × 360 / n</code> với k là số vòng quay. Thử <code>360 * 3 / 7 ≈ 154.3</code> độ với 7 cạnh để có một ngôi sao bảy cánh.</p>"
+"explanation": "<p>The 144-degree angle comes from the turtle making <em>two</em> full turns while drawing a five-pointed star: <code>2 × 360 / 5 = 144</code>. That is why the lines cross over each other to form the star shape.</p><pre>import turtle\n\nt = turtle.Turtle()\nt.pensize(3)\nt.pencolor(\"darkorange\")\nt.fillcolor(\"gold\")\n\nt.penup()\nt.goto(-100, -60)\nt.setheading(0)\nt.pendown()\n\nt.begin_fill()\nfor i in range(5):\n    t.forward(200)\n    t.right(144)\nt.end_fill()\n\nt.hideturtle()\nturtle.done()</pre><p>The general formula for an n-pointed star is <code>k × 360 / n</code>, where k is the number of full turns. Try <code>360 * 3 / 7 ≈ 154.3</code> degrees with 7 sides to get a seven-pointed star.</p>"
 }
 ];
 
@@ -1218,8 +1218,8 @@ const sidebar = document.getElementById('sidebar');
 const mainEl = document.getElementById('main');
 const submitted = new Array(TASKS.length).fill(false);
 
-const GROUP_LABEL = {'Original':'Original set','Dễ':'Dễ · easy','Trung bình':'Trung bình · medium'};
-const LEVEL_CLASS = {'Original':'level-goc','Dễ':'level-de','Trung bình':'level-tb'};
+const GROUP_LABEL = {'Original':'Original set','Easy':'Easy','Medium':'Medium'};
+const LEVEL_CLASS = {'Original':'level-goc','Easy':'level-de','Medium':'level-tb'};
 const statusEl = document.getElementById('statusBlock');
 let lastLevel = null;
 
@@ -1302,7 +1302,7 @@ function updateStatus() {
 /* =========================================================
    TURTLE — a recording stand-in, drawn back out as SVG
    ========================================================= */
-const TURTLE_SHIM = "\"\"\"A drop-in 'turtle' replacement that records drawing operations instead of\nopening a Tk window. The host page reads _dump() and renders the result as SVG.\"\"\"\n\nimport math as _math\nimport json as _json\n\n_state = {\"w\": 640, \"h\": 480, \"bg\": \"white\", \"records\": [], \"ops\": 0}\n\n_NAMED = {\n    \"white\": \"#ffffff\", \"black\": \"#000000\", \"red\": \"#ff0000\", \"green\": \"#008000\",\n    \"blue\": \"#0000ff\", \"yellow\": \"#ffff00\", \"orange\": \"#ffa500\", \"purple\": \"#800080\",\n    \"pink\": \"#ffc0cb\", \"brown\": \"#a52a2a\", \"gray\": \"#808080\", \"grey\": \"#808080\",\n    \"cyan\": \"#00ffff\", \"magenta\": \"#ff00ff\", \"lime\": \"#00ff00\", \"navy\": \"#000080\",\n    \"gold\": \"#ffd700\", \"silver\": \"#c0c0c0\", \"violet\": \"#ee82ee\", \"indigo\": \"#4b0082\",\n    \"tan\": \"#d2b48c\", \"skyblue\": \"#87ceeb\", \"lightblue\": \"#add8e6\", \"darkgreen\": \"#006400\",\n    \"lightgreen\": \"#90ee90\", \"beige\": \"#f5f5dc\", \"maroon\": \"#800000\", \"olive\": \"#808000\",\n    \"teal\": \"#008080\", \"coral\": \"#ff7f50\", \"salmon\": \"#fa8072\", \"khaki\": \"#f0e68c\",\n    \"crimson\": \"#dc143c\", \"turquoise\": \"#40e0d0\", \"lavender\": \"#e6e6fa\",\n    \"lightyellow\": \"#ffffe0\", \"darkblue\": \"#00008b\", \"darkred\": \"#8b0000\",\n    \"forestgreen\": \"#228b22\", \"saddlebrown\": \"#8b4513\", \"sienna\": \"#a0522d\",\n    \"chocolate\": \"#d2691e\", \"wheat\": \"#f5deb3\", \"plum\": \"#dda0dd\", \"orchid\": \"#da70d6\",\n}\n\n_colormode = [1.0]\n\n\ndef _clamp(v, lo, hi):\n    return lo if v < lo else (hi if v > hi else v)\n\n\ndef _tocolor(c):\n    \"\"\"Accept 'red', '#ff0000', (r,g,b) or r,g,b in the current colormode.\"\"\"\n    if isinstance(c, (tuple, list)):\n        if len(c) == 1:\n            return _tocolor(c[0])\n        if len(c) >= 3:\n            mx = _colormode[0]\n            r, g, b = c[0], c[1], c[2]\n            if mx == 1.0:\n                r, g, b = r * 255.0, g * 255.0, b * 255.0\n            return \"#%02x%02x%02x\" % (\n                int(_clamp(r, 0, 255)), int(_clamp(g, 0, 255)), int(_clamp(b, 0, 255)))\n    if isinstance(c, str):\n        s = c.strip().lower()\n        if s.startswith(\"#\"):\n            return s\n        return _NAMED.get(s, s)\n    return \"black\"\n\n\ndef _rec(d):\n    _state[\"ops\"] += 1\n    if _state[\"ops\"] > 200000:\n        raise RuntimeError(\"B\u1ea3n v\u1ebd qu\u00e1 l\u1edbn \u2014 h\u00e3y gi\u1ea3m s\u1ed1 v\u00f2ng l\u1eb7p l\u1ea1i.\")\n    _state[\"records\"].append(d)\n\n\nclass Turtle(object):\n    def __init__(self, shape=\"classic\", *a, **k):\n        self.x = 0.0\n        self.y = 0.0\n        self.angle = 0.0            # degrees, 0 = east, counter-clockwise\n        self._down = True\n        self._pen = \"#000000\"\n        self._fill = \"#000000\"\n        self._w = 1\n        self._filling = False\n        self._pts = []\n        self._visible = True\n\n    # ---- movement -------------------------------------------------------\n    def _moveto(self, nx, ny, draw=True):\n        if self._filling:\n            if not self._pts:\n                self._pts.append([self.x, self.y])\n            self._pts.append([nx, ny])\n        if draw and self._down:\n            _rec({\"t\": \"l\", \"x1\": self.x, \"y1\": self.y, \"x2\": nx, \"y2\": ny,\n                  \"c\": self._pen, \"w\": self._w})\n        self.x, self.y = nx, ny\n\n    def forward(self, d):\n        r = _math.radians(self.angle)\n        self._moveto(self.x + d * _math.cos(r), self.y + d * _math.sin(r))\n    fd = forward\n\n    def backward(self, d):\n        self.forward(-d)\n    bk = back = backward\n\n    def right(self, a):\n        self.angle = (self.angle - a) % 360.0\n    rt = right\n\n    def left(self, a):\n        self.angle = (self.angle + a) % 360.0\n    lt = left\n\n    def goto(self, x, y=None):\n        if y is None:\n            x, y = x[0], x[1]\n        self._moveto(float(x), float(y))\n    setpos = setposition = goto\n\n    def setx(self, x):\n        self._moveto(float(x), self.y)\n\n    def sety(self, y):\n        self._moveto(self.x, float(y))\n\n    def home(self):\n        self._moveto(0.0, 0.0)\n        self.angle = 0.0\n\n    def setheading(self, a):\n        self.angle = float(a) % 360.0\n    seth = setheading\n\n    def circle(self, radius, extent=None, steps=None):\n        if extent is None:\n            extent = 360.0\n        if steps is None:\n            steps = max(8, int(abs(extent) / 3.0) + 1)\n        w = float(extent) / steps\n        w2 = 0.5 * w\n        l = 2.0 * radius * _math.sin(_math.radians(w2))\n        if radius < 0:\n            l, w, w2 = -l, -w, -w2\n        self.left(w2)\n        for _ in range(steps):\n            self.forward(l)\n            self.left(w)\n        self.right(w2)\n\n    def dot(self, size=None, *color):\n        s = size if size else max(self._w + 4, 2 * self._w)\n        c = _tocolor(color) if color else self._pen\n        _rec({\"t\": \"d\", \"x\": self.x, \"y\": self.y, \"r\": s / 2.0, \"c\": c})\n\n    def write(self, text, move=False, align=\"left\", font=(\"Arial\", 8, \"normal\")):\n        size = 8\n        try:\n            size = int(font[1])\n        except Exception:\n            pass\n        _rec({\"t\": \"x\", \"x\": self.x, \"y\": self.y, \"s\": str(text),\n              \"c\": self._pen, \"fs\": size, \"a\": str(align).lower()})\n\n    # ---- pen ------------------------------------------------------------\n    def penup(self):\n        self._down = False\n    pu = up = penup\n\n    def pendown(self):\n        self._down = True\n    pd = down = pendown\n\n    def isdown(self):\n        return self._down\n\n    def pensize(self, w=None):\n        if w is None:\n            return self._w\n        self._w = w\n    width = pensize\n\n    def pencolor(self, *c):\n        if not c:\n            return self._pen\n        self._pen = _tocolor(c)\n\n    def fillcolor(self, *c):\n        if not c:\n            return self._fill\n        self._fill = _tocolor(c)\n\n    def color(self, *c):\n        if not c:\n            return (self._pen, self._fill)\n        if len(c) == 1:\n            self._pen = self._fill = _tocolor(c[0])\n        else:\n            self._pen = _tocolor(c[0])\n            self._fill = _tocolor(c[1])\n\n    def begin_fill(self):\n        self._filling = True\n        self._pts = [[self.x, self.y]]\n\n    def end_fill(self):\n        if self._filling and len(self._pts) > 2:\n            _rec({\"t\": \"p\", \"pts\": list(self._pts), \"c\": self._fill})\n        self._filling = False\n        self._pts = []\n\n    def filling(self):\n        return self._filling\n\n    # ---- queries --------------------------------------------------------\n    def position(self):\n        return (self.x, self.y)\n    pos = position\n\n    def xcor(self):\n        return self.x\n\n    def ycor(self):\n        return self.y\n\n    def heading(self):\n        return self.angle\n\n    def distance(self, x, y=None):\n        if y is None:\n            x, y = x[0], x[1]\n        return _math.hypot(x - self.x, y - self.y)\n\n    def towards(self, x, y=None):\n        if y is None:\n            x, y = x[0], x[1]\n        return _math.degrees(_math.atan2(y - self.y, x - self.x)) % 360.0\n\n    # ---- no-ops kept so real turtle programs still run -------------------\n    def speed(self, *a):\n        return 0\n\n    def hideturtle(self):\n        self._visible = False\n    ht = hideturtle\n\n    def showturtle(self):\n        self._visible = True\n    st = showturtle\n\n    def isvisible(self):\n        return self._visible\n\n    def shape(self, *a):\n        return \"classic\"\n\n    def shapesize(self, *a, **k):\n        pass\n\n    def stamp(self, *a):\n        return 0\n\n    def clearstamps(self, *a):\n        pass\n\n    def clear(self):\n        _state[\"records\"] = []\n\n    def reset(self):\n        self.clear()\n        self.__init__()\n\n    def getscreen(self):\n        return _screen\n\n    def delay(self, *a):\n        pass\n\n    def tracer(self, *a, **k):\n        pass\n\n    def update(self):\n        pass\n\n    def ondrag(self, *a, **k):\n        pass\n\n    def onclick(self, *a, **k):\n        pass\n\n    def onrelease(self, *a, **k):\n        pass\n\n\nPen = RawTurtle = RawPen = Turtle\n\n\nclass _Screen(object):\n    def bgcolor(self, *c):\n        if not c:\n            return _state[\"bg\"]\n        _state[\"bg\"] = _tocolor(c)\n\n    def setup(self, width=None, height=None, *a, **k):\n        if width:\n            _state[\"w\"] = int(width)\n        if height:\n            _state[\"h\"] = int(height)\n\n    def screensize(self, w=None, h=None, bg=None):\n        if bg:\n            self.bgcolor(bg)\n        self.setup(w, h)\n\n    def window_width(self):\n        return _state[\"w\"]\n\n    def window_height(self):\n        return _state[\"h\"]\n\n    def colormode(self, m=None):\n        if m is None:\n            return _colormode[0]\n        _colormode[0] = float(m)\n\n    def clear(self):\n        _state[\"records\"] = []\n\n    def reset(self):\n        _state[\"records\"] = []\n\n    def tracer(self, *a, **k):\n        pass\n\n    def update(self):\n        pass\n\n    def delay(self, *a):\n        pass\n\n    def title(self, *a):\n        pass\n\n    def listen(self, *a, **k):\n        pass\n\n    def onkey(self, *a, **k):\n        pass\n\n    def onkeypress(self, *a, **k):\n        pass\n\n    def onkeyrelease(self, *a, **k):\n        pass\n\n    def onclick(self, *a, **k):\n        pass\n\n    def onscreenclick(self, *a, **k):\n        pass\n\n    def ontimer(self, fun=None, t=0):\n        # Animation loops can't run here; call once so a single frame appears.\n        if callable(fun) and _state[\"ops\"] < 60000:\n            fun()\n\n    def mainloop(self):\n        pass\n\n    done = mainloop\n\n    def exitonclick(self):\n        pass\n\n    def bye(self):\n        pass\n\n    def numinput(self, title, prompt, default=None, minval=None, maxval=None):\n        try:\n            return float(input(prompt + \" \"))\n        except Exception:\n            return default if default is not None else 0.0\n\n    def textinput(self, title, prompt):\n        return input(prompt + \" \")\n\n\n_screen = _Screen()\n_default = Turtle()\n\n\ndef Screen():\n    return _screen\n\n\ndef getscreen():\n    return _screen\n\n\ndef getturtle():\n    return _default\n\n\ngetpen = getturtle\n\n\ndef _mk(name):\n    def f(*a, **k):\n        return getattr(_default, name)(*a, **k)\n    f.__name__ = name\n    return f\n\n\nfor _n in (\"forward fd backward bk back right rt left lt goto setpos setposition \"\n           \"setx sety home setheading seth circle dot write penup pu up pendown pd \"\n           \"down isdown pensize width pencolor fillcolor color begin_fill end_fill \"\n           \"filling position pos xcor ycor heading distance towards speed hideturtle \"\n           \"ht showturtle st isvisible shape shapesize stamp clearstamps reset \"\n           \"ondrag\").split():\n    globals()[_n] = _mk(_n)\n\n\ndef _mks(name):\n    def f(*a, **k):\n        return getattr(_screen, name)(*a, **k)\n    f.__name__ = name\n    return f\n\n\nfor _n in (\"bgcolor setup screensize window_width window_height colormode clear \"\n           \"tracer update delay title listen onkey onkeypress onkeyrelease onclick \"\n           \"onscreenclick ontimer mainloop done exitonclick bye numinput \"\n           \"textinput\").split():\n    globals()[_n] = _mks(_n)\n\n\ndef _dump():\n    return _json.dumps({\"w\": _state[\"w\"], \"h\": _state[\"h\"],\n                        \"bg\": _state[\"bg\"], \"r\": _state[\"records\"]})\n\n\ndef _reset_all():\n    _state[\"records\"] = []\n    _state[\"ops\"] = 0\n    _state[\"bg\"] = \"white\"\n    _state[\"w\"] = 640\n    _state[\"h\"] = 480\n    _colormode[0] = 1.0\n    globals()[\"_default\"] = Turtle()\n    for _n in (\"forward fd backward bk back right rt left lt goto setpos setposition \"\n               \"setx sety home setheading seth circle dot write penup pu up pendown pd \"\n               \"down isdown pensize width pencolor fillcolor color begin_fill end_fill \"\n               \"filling position pos xcor ycor heading distance towards speed hideturtle \"\n               \"ht showturtle st isvisible shape shapesize stamp clearstamps reset \"\n               \"ondrag\").split():\n        globals()[_n] = _mk(_n)\n";
+const TURTLE_SHIM = "\"\"\"A drop-in 'turtle' replacement that records drawing operations instead of\nopening a Tk window. The host page reads _dump() and renders the result as SVG.\"\"\"\n\nimport math as _math\nimport json as _json\n\n_state = {\"w\": 640, \"h\": 480, \"bg\": \"white\", \"records\": [], \"ops\": 0}\n\n_NAMED = {\n    \"white\": \"#ffffff\", \"black\": \"#000000\", \"red\": \"#ff0000\", \"green\": \"#008000\",\n    \"blue\": \"#0000ff\", \"yellow\": \"#ffff00\", \"orange\": \"#ffa500\", \"purple\": \"#800080\",\n    \"pink\": \"#ffc0cb\", \"brown\": \"#a52a2a\", \"gray\": \"#808080\", \"grey\": \"#808080\",\n    \"cyan\": \"#00ffff\", \"magenta\": \"#ff00ff\", \"lime\": \"#00ff00\", \"navy\": \"#000080\",\n    \"gold\": \"#ffd700\", \"silver\": \"#c0c0c0\", \"violet\": \"#ee82ee\", \"indigo\": \"#4b0082\",\n    \"tan\": \"#d2b48c\", \"skyblue\": \"#87ceeb\", \"lightblue\": \"#add8e6\", \"darkgreen\": \"#006400\",\n    \"lightgreen\": \"#90ee90\", \"beige\": \"#f5f5dc\", \"maroon\": \"#800000\", \"olive\": \"#808000\",\n    \"teal\": \"#008080\", \"coral\": \"#ff7f50\", \"salmon\": \"#fa8072\", \"khaki\": \"#f0e68c\",\n    \"crimson\": \"#dc143c\", \"turquoise\": \"#40e0d0\", \"lavender\": \"#e6e6fa\",\n    \"lightyellow\": \"#ffffe0\", \"darkblue\": \"#00008b\", \"darkred\": \"#8b0000\",\n    \"forestgreen\": \"#228b22\", \"saddlebrown\": \"#8b4513\", \"sienna\": \"#a0522d\",\n    \"chocolate\": \"#d2691e\", \"wheat\": \"#f5deb3\", \"plum\": \"#dda0dd\", \"orchid\": \"#da70d6\",\n}\n\n_colormode = [1.0]\n\n\ndef _clamp(v, lo, hi):\n    return lo if v < lo else (hi if v > hi else v)\n\n\ndef _tocolor(c):\n    \"\"\"Accept 'red', '#ff0000', (r,g,b) or r,g,b in the current colormode.\"\"\"\n    if isinstance(c, (tuple, list)):\n        if len(c) == 1:\n            return _tocolor(c[0])\n        if len(c) >= 3:\n            mx = _colormode[0]\n            r, g, b = c[0], c[1], c[2]\n            if mx == 1.0:\n                r, g, b = r * 255.0, g * 255.0, b * 255.0\n            return \"#%02x%02x%02x\" % (\n                int(_clamp(r, 0, 255)), int(_clamp(g, 0, 255)), int(_clamp(b, 0, 255)))\n    if isinstance(c, str):\n        s = c.strip().lower()\n        if s.startswith(\"#\"):\n            return s\n        return _NAMED.get(s, s)\n    return \"black\"\n\n\ndef _rec(d):\n    _state[\"ops\"] += 1\n    if _state[\"ops\"] > 200000:\n        raise RuntimeError(\"Drawing too large \u2014 reduce the number of loop repetitions.\")\n    _state[\"records\"].append(d)\n\n\nclass Turtle(object):\n    def __init__(self, shape=\"classic\", *a, **k):\n        self.x = 0.0\n        self.y = 0.0\n        self.angle = 0.0            # degrees, 0 = east, counter-clockwise\n        self._down = True\n        self._pen = \"#000000\"\n        self._fill = \"#000000\"\n        self._w = 1\n        self._filling = False\n        self._pts = []\n        self._visible = True\n\n    # ---- movement -------------------------------------------------------\n    def _moveto(self, nx, ny, draw=True):\n        if self._filling:\n            if not self._pts:\n                self._pts.append([self.x, self.y])\n            self._pts.append([nx, ny])\n        if draw and self._down:\n            _rec({\"t\": \"l\", \"x1\": self.x, \"y1\": self.y, \"x2\": nx, \"y2\": ny,\n                  \"c\": self._pen, \"w\": self._w})\n        self.x, self.y = nx, ny\n\n    def forward(self, d):\n        r = _math.radians(self.angle)\n        self._moveto(self.x + d * _math.cos(r), self.y + d * _math.sin(r))\n    fd = forward\n\n    def backward(self, d):\n        self.forward(-d)\n    bk = back = backward\n\n    def right(self, a):\n        self.angle = (self.angle - a) % 360.0\n    rt = right\n\n    def left(self, a):\n        self.angle = (self.angle + a) % 360.0\n    lt = left\n\n    def goto(self, x, y=None):\n        if y is None:\n            x, y = x[0], x[1]\n        self._moveto(float(x), float(y))\n    setpos = setposition = goto\n\n    def setx(self, x):\n        self._moveto(float(x), self.y)\n\n    def sety(self, y):\n        self._moveto(self.x, float(y))\n\n    def home(self):\n        self._moveto(0.0, 0.0)\n        self.angle = 0.0\n\n    def setheading(self, a):\n        self.angle = float(a) % 360.0\n    seth = setheading\n\n    def circle(self, radius, extent=None, steps=None):\n        if extent is None:\n            extent = 360.0\n        if steps is None:\n            steps = max(8, int(abs(extent) / 3.0) + 1)\n        w = float(extent) / steps\n        w2 = 0.5 * w\n        l = 2.0 * radius * _math.sin(_math.radians(w2))\n        if radius < 0:\n            l, w, w2 = -l, -w, -w2\n        self.left(w2)\n        for _ in range(steps):\n            self.forward(l)\n            self.left(w)\n        self.right(w2)\n\n    def dot(self, size=None, *color):\n        s = size if size else max(self._w + 4, 2 * self._w)\n        c = _tocolor(color) if color else self._pen\n        _rec({\"t\": \"d\", \"x\": self.x, \"y\": self.y, \"r\": s / 2.0, \"c\": c})\n\n    def write(self, text, move=False, align=\"left\", font=(\"Arial\", 8, \"normal\")):\n        size = 8\n        try:\n            size = int(font[1])\n        except Exception:\n            pass\n        _rec({\"t\": \"x\", \"x\": self.x, \"y\": self.y, \"s\": str(text),\n              \"c\": self._pen, \"fs\": size, \"a\": str(align).lower()})\n\n    # ---- pen ------------------------------------------------------------\n    def penup(self):\n        self._down = False\n    pu = up = penup\n\n    def pendown(self):\n        self._down = True\n    pd = down = pendown\n\n    def isdown(self):\n        return self._down\n\n    def pensize(self, w=None):\n        if w is None:\n            return self._w\n        self._w = w\n    width = pensize\n\n    def pencolor(self, *c):\n        if not c:\n            return self._pen\n        self._pen = _tocolor(c)\n\n    def fillcolor(self, *c):\n        if not c:\n            return self._fill\n        self._fill = _tocolor(c)\n\n    def color(self, *c):\n        if not c:\n            return (self._pen, self._fill)\n        if len(c) == 1:\n            self._pen = self._fill = _tocolor(c[0])\n        else:\n            self._pen = _tocolor(c[0])\n            self._fill = _tocolor(c[1])\n\n    def begin_fill(self):\n        self._filling = True\n        self._pts = [[self.x, self.y]]\n\n    def end_fill(self):\n        if self._filling and len(self._pts) > 2:\n            _rec({\"t\": \"p\", \"pts\": list(self._pts), \"c\": self._fill})\n        self._filling = False\n        self._pts = []\n\n    def filling(self):\n        return self._filling\n\n    # ---- queries --------------------------------------------------------\n    def position(self):\n        return (self.x, self.y)\n    pos = position\n\n    def xcor(self):\n        return self.x\n\n    def ycor(self):\n        return self.y\n\n    def heading(self):\n        return self.angle\n\n    def distance(self, x, y=None):\n        if y is None:\n            x, y = x[0], x[1]\n        return _math.hypot(x - self.x, y - self.y)\n\n    def towards(self, x, y=None):\n        if y is None:\n            x, y = x[0], x[1]\n        return _math.degrees(_math.atan2(y - self.y, x - self.x)) % 360.0\n\n    # ---- no-ops kept so real turtle programs still run -------------------\n    def speed(self, *a):\n        return 0\n\n    def hideturtle(self):\n        self._visible = False\n    ht = hideturtle\n\n    def showturtle(self):\n        self._visible = True\n    st = showturtle\n\n    def isvisible(self):\n        return self._visible\n\n    def shape(self, *a):\n        return \"classic\"\n\n    def shapesize(self, *a, **k):\n        pass\n\n    def stamp(self, *a):\n        return 0\n\n    def clearstamps(self, *a):\n        pass\n\n    def clear(self):\n        _state[\"records\"] = []\n\n    def reset(self):\n        self.clear()\n        self.__init__()\n\n    def getscreen(self):\n        return _screen\n\n    def delay(self, *a):\n        pass\n\n    def tracer(self, *a, **k):\n        pass\n\n    def update(self):\n        pass\n\n    def ondrag(self, *a, **k):\n        pass\n\n    def onclick(self, *a, **k):\n        pass\n\n    def onrelease(self, *a, **k):\n        pass\n\n\nPen = RawTurtle = RawPen = Turtle\n\n\nclass _Screen(object):\n    def bgcolor(self, *c):\n        if not c:\n            return _state[\"bg\"]\n        _state[\"bg\"] = _tocolor(c)\n\n    def setup(self, width=None, height=None, *a, **k):\n        if width:\n            _state[\"w\"] = int(width)\n        if height:\n            _state[\"h\"] = int(height)\n\n    def screensize(self, w=None, h=None, bg=None):\n        if bg:\n            self.bgcolor(bg)\n        self.setup(w, h)\n\n    def window_width(self):\n        return _state[\"w\"]\n\n    def window_height(self):\n        return _state[\"h\"]\n\n    def colormode(self, m=None):\n        if m is None:\n            return _colormode[0]\n        _colormode[0] = float(m)\n\n    def clear(self):\n        _state[\"records\"] = []\n\n    def reset(self):\n        _state[\"records\"] = []\n\n    def tracer(self, *a, **k):\n        pass\n\n    def update(self):\n        pass\n\n    def delay(self, *a):\n        pass\n\n    def title(self, *a):\n        pass\n\n    def listen(self, *a, **k):\n        pass\n\n    def onkey(self, *a, **k):\n        pass\n\n    def onkeypress(self, *a, **k):\n        pass\n\n    def onkeyrelease(self, *a, **k):\n        pass\n\n    def onclick(self, *a, **k):\n        pass\n\n    def onscreenclick(self, *a, **k):\n        pass\n\n    def ontimer(self, fun=None, t=0):\n        # Animation loops can't run here; call once so a single frame appears.\n        if callable(fun) and _state[\"ops\"] < 60000:\n            fun()\n\n    def mainloop(self):\n        pass\n\n    done = mainloop\n\n    def exitonclick(self):\n        pass\n\n    def bye(self):\n        pass\n\n    def numinput(self, title, prompt, default=None, minval=None, maxval=None):\n        try:\n            return float(input(prompt + \" \"))\n        except Exception:\n            return default if default is not None else 0.0\n\n    def textinput(self, title, prompt):\n        return input(prompt + \" \")\n\n\n_screen = _Screen()\n_default = Turtle()\n\n\ndef Screen():\n    return _screen\n\n\ndef getscreen():\n    return _screen\n\n\ndef getturtle():\n    return _default\n\n\ngetpen = getturtle\n\n\ndef _mk(name):\n    def f(*a, **k):\n        return getattr(_default, name)(*a, **k)\n    f.__name__ = name\n    return f\n\n\nfor _n in (\"forward fd backward bk back right rt left lt goto setpos setposition \"\n           \"setx sety home setheading seth circle dot write penup pu up pendown pd \"\n           \"down isdown pensize width pencolor fillcolor color begin_fill end_fill \"\n           \"filling position pos xcor ycor heading distance towards speed hideturtle \"\n           \"ht showturtle st isvisible shape shapesize stamp clearstamps reset \"\n           \"ondrag\").split():\n    globals()[_n] = _mk(_n)\n\n\ndef _mks(name):\n    def f(*a, **k):\n        return getattr(_screen, name)(*a, **k)\n    f.__name__ = name\n    return f\n\n\nfor _n in (\"bgcolor setup screensize window_width window_height colormode clear \"\n           \"tracer update delay title listen onkey onkeypress onkeyrelease onclick \"\n           \"onscreenclick ontimer mainloop done exitonclick bye numinput \"\n           \"textinput\").split():\n    globals()[_n] = _mks(_n)\n\n\ndef _dump():\n    return _json.dumps({\"w\": _state[\"w\"], \"h\": _state[\"h\"],\n                        \"bg\": _state[\"bg\"], \"r\": _state[\"records\"]})\n\n\ndef _reset_all():\n    _state[\"records\"] = []\n    _state[\"ops\"] = 0\n    _state[\"bg\"] = \"white\"\n    _state[\"w\"] = 640\n    _state[\"h\"] = 480\n    _colormode[0] = 1.0\n    globals()[\"_default\"] = Turtle()\n    for _n in (\"forward fd backward bk back right rt left lt goto setpos setposition \"\n               \"setx sety home setheading seth circle dot write penup pu up pendown pd \"\n               \"down isdown pensize width pencolor fillcolor color begin_fill end_fill \"\n               \"filling position pos xcor ycor heading distance towards speed hideturtle \"\n               \"ht showturtle st isvisible shape shapesize stamp clearstamps reset \"\n               \"ondrag\").split():\n        globals()[_n] = _mk(_n)\n";
 
 function renderTurtle(i, data) {
   const wrap = document.getElementById('canvas-' + i);
@@ -1479,10 +1479,54 @@ document.querySelectorAll('.explanation').forEach(block => {
   });
 });
 
+// Tab / Shift+Tab indent inside the code editors (4 spaces, works on selections).
+document.querySelectorAll("textarea.code").forEach(ta => {
+  ta.addEventListener("keydown", e => {
+    if (e.key !== "Tab" || e.ctrlKey || e.altKey || e.metaKey) return;
+    e.preventDefault();
+    const IND = "    ";
+    const v = ta.value, a = ta.selectionStart, b = ta.selectionEnd;
+    const set = (from, to, text, selA, selB) => {
+      ta.setSelectionRange(from, to);
+      if (!document.execCommand("insertText", false, text)) ta.setRangeText(text, from, to, "end");
+      ta.setSelectionRange(selA, selB);
+    };
+    if (a === b && !e.shiftKey) { set(a, b, IND, a + IND.length, a + IND.length); return; }
+    const start = v.lastIndexOf("\n", a - 1) + 1;
+    let end = v.indexOf("\n", b); if (end < 0) end = v.length;
+    const lines = v.slice(start, end).split("\n");
+    let firstDelta = 0, total = 0;
+    const out = lines.map((ln, k) => {
+      let d;
+      if (e.shiftKey) { d = -(ln.match(/^ {1,4}|^\t/) || [""])[0].length; ln = ln.slice(-d); }
+      else { d = IND.length; ln = IND + ln; }
+      if (k === 0) firstDelta = d;
+      total += d;
+      return ln;
+    });
+    set(start, end, out.join("\n"), Math.max(start, a + firstDelta), b + total);
+  });
+});
+
+// Enter keeps the current line indent, and adds 4 more spaces after a line ending in ":".
+document.querySelectorAll("textarea.code").forEach(ta => {
+  ta.addEventListener("keydown", e => {
+    if (e.key !== "Enter" || e.isComposing || e.ctrlKey || e.altKey || e.metaKey) return;
+    e.preventDefault();
+    const a = ta.selectionStart;
+    const line = ta.value.slice(ta.value.lastIndexOf("\n", a - 1) + 1, a);
+    const trimmed = line.trimEnd();
+    let ind = line.match(/^[ \t]*/)[0];
+    if (trimmed.endsWith(":") && !trimmed.trimStart().startsWith("#")) ind += "    ";
+    const text = "\n" + ind;
+    if (!document.execCommand("insertText", false, text)) ta.setRangeText(text, a, ta.selectionEnd, "end");
+  });
+});
+
 /* =========================================================
    EXPORT — download the exercise the student is working on
    ========================================================= */
-const LEVEL_SLUG = {'Original': 'goc', 'Dễ': 'de', 'Trung bình': 'tb'};
+const LEVEL_SLUG = {'Original': 'original', 'Easy': 'easy', 'Medium': 'medium'};
 
 function exportTask(i) {
   const t = TASKS[i];
@@ -1505,7 +1549,7 @@ function exportTask(i) {
   let out = `# Python Practice — Submission\n`;
   out += `# Student: ${name}\n`;
   out += `# Exported: ${new Date().toLocaleString()}\n`;
-  out += `# Exercise: [${t.level}] Bài ${t.disp} — ${t.title}\n`;
+  out += `# Exercise: [${t.level}] No. ${t.disp} — ${t.title}\n`;
   out += `# Topic: ${t.goal}\n`;
   out += `# Status: ${submitted[i] ? 'submitted' : 'not submitted'}\n`;
   out += `# ${'='.repeat(60)}\n\n`;
@@ -1515,7 +1559,7 @@ function exportTask(i) {
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
   a.href = url;
-  a.download = `${safeName}_${LEVEL_SLUG[t.level] || 'bai'}_bai${t.disp}.py`;
+  a.download = `${safeName}_${LEVEL_SLUG[t.level] || 'ex'}_ex${t.disp}.py`;
   document.body.appendChild(a);
   a.click();
   a.remove();
